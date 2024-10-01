@@ -16,58 +16,7 @@ import { RiInstagramFill } from "react-icons/ri";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { IoLogoFacebook } from "react-icons/io5";
 import DownloadBtn from "../utility/DownloadBtn";
-// import "./master.css"
-// import { useAnimate, stagger } from "framer-motion";
-// import { MenuToggle } from "./MenuToggle.jsx";
-// import { Menu } from "./Menu";
 
-
-
-
-// function useMenuAnimation(isOpen) {
-//     const [scope, animate] = useAnimate();
-  
-//     useEffect(() => {
-//       const menuAnimations = isOpen
-//         ? [
-//             [
-//               "nav",
-//               { transform: "translateX(0%)" },
-//               { ease: [0.08, 0.65, 0.53, 0.96], duration: 0.6 }
-//             ],
-//             [
-//               "li",
-//               { transform: "scale(1)", opacity: 1, filter: "blur(0px)" },
-//               { delay: stagger(0.05), at: "-0.1" }
-//             ]
-//           ]
-//         : [
-//             [
-//               "li",
-//               { transform: "scale(0.5)", opacity: 0, filter: "blur(10px)" },
-//               { delay: stagger(0.05, { from: "last" }), at: "<" }
-//             ],
-//             ["nav", { transform: "translateX(-100%)" }, { at: "-0.1" }]
-//           ];
-  
-//       animate([
-//         [
-//           "path.top",
-//           { d: isOpen ? "M 3 16.5 L 17 2.5" : "M 2 2.5 L 20 2.5" },
-//           { at: "<" }
-//         ],
-//         ["path.middle", { opacity: isOpen ? 0 : 1 }, { at: "<" }],
-//         [
-//           "path.bottom",
-//           { d: isOpen ? "M 3 2.5 L 17 16.346" : "M 2 16.346 L 20 16.346" },
-//           { at: "<" }
-//         ],
-//         ...menuAnimations
-//       ]);
-//     }, [isOpen]);
-  
-//     return scope;
-//   }
 
 
 const MasterLayout = () => {
@@ -76,9 +25,6 @@ const MasterLayout = () => {
     const [isEntering, setIsEntering] = useState(false);
 
 
-    // const [isOpen, setIsOpen] = useState(false);
-
-    // const scope = useMenuAnimation(isOpen);
     
 
     const onSubmit = (componentName) => {
@@ -136,7 +82,7 @@ const MasterLayout = () => {
 
                 {/* Main content area */}
                 <div className="grid lg:grid-cols-2 sm:grid-cols-1 lg:gap-0 gap-4 lg:mt-0 md:mt-0 mt-14">
-                    <div className="card mastercard bg-white w-[500px] shadow-lg rounded-md z-[10]">
+                    <div className="card mastercard bg-white w-[500px] shadow-lg lg:mt-0 mt-16  rounded-md z-[10]">
                         <div className="">
                             <img className="w-full" src="https://i.postimg.cc/W4HRXLs1/dfdf.png" alt="img" />
                             <div className="text-center text-black pb-6">
@@ -174,7 +120,7 @@ const MasterLayout = () => {
                                 </span>
                             </div>
                             
-                            <NavLink className='mx-auto flex items-center gap-4 justify-center text-black text-lg cursor-pointer py-4 mb-3 border-t'>
+                            <NavLink className='mx-auto flex items-center gap-4 justify-center text-black text-lg cursor-pointer py-4 mb-3 mt-10 border-t'>
                                 
                                 <DownloadBtn/>
 

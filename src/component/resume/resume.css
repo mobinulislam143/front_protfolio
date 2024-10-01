@@ -1,18 +1,15 @@
-/* Custom scrollbar styling */
-.no-scrollbar::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
-  }
-  
-  .no-scrollbar::-webkit-scrollbar-thumb {
-    background: #888; /* Color of the scrollbar thumb */
-    border-radius: 4px;
-  }
-  
-  .no-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color when hovering */
-  }
-  
-  .no-scrollbar::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Background of the scrollbar track */
-  }
-  
+/* Custom progress bar style */
+.progress::-webkit-progress-bar {
+  background-color: #f0f0f0; /* Background of progress bar */
+  border-radius: 0.25rem; /* Optional: rounded corners */
+}
+
+.progress::-webkit-progress-value {
+  background-color: #1b8c73; /* The green fill of the progress bar */
+  border-radius: 0.25rem; /* Optional: rounded corners */
+}
+
+.progress::-moz-progress-bar {
+  background-color: #1b8c73; /* For Firefox */
+  border-radius: 0.25rem;
+}

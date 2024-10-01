@@ -1,79 +1,103 @@
-import "./styles.css";
-import { Suspense, useState } from "react";
-import { motion, MotionConfig, useMotionValue } from "framer-motion";
-import { Shapes } from "./Shapes";
-import { transition } from "./settings";
-import useMeasure from "react-use-measure";
+  import { stagger, useAnimate, animate } from "framer-motion";
+  import { IoCodeDownloadSharp } from "react-icons/io5";
 
-const DownloadBtn = () => {
-  const [ref, bounds] = useMeasure({ scroll: false });
-  const [isHover, setIsHover] = useState(false);
-  const [isPress, setIsPress] = useState(false);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const resetMousePosition = () => {
-    mouseX.set(0);
-    mouseY.set(0);
+  const randomNumberBetween = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1) + min);
   };
 
-  return (
-    <MotionConfig transition={transition}> 
-      <motion.button
-        ref={ref}
-        initial={false}
-        animate={isHover ? "hover" : "rest"}
-        whileTap="press"
-        variants={{
-          rest: { scale: 1 },
-          hover: { scale: 1.3 },
-          press: { scale: 1.2 }
-        }}
-        onHoverStart={() => {
-          resetMousePosition();
-          setIsHover(true);
-        }}
-        onHoverEnd={() => {
-          resetMousePosition();
-          setIsHover(false);
-        }}
-        onTapStart={() => setIsPress(true)}
-        onTap={() => setIsPress(false)}
-        onTapCancel={() => setIsPress(false)}
-        onPointerMove={(e) => {
-          mouseX.set(e.clientX - bounds.x - bounds.width / 2);
-          mouseY.set(e.clientY - bounds.y - bounds.height / 2);
-        }}
-      >
-        <motion.div
-          className="shapes"
-          variants={{
-            rest: { opacity: 0 },
-            hover: { opacity: 1 }
-          }}
-        >
-          <div className="pink blush" />
-          <div className="blue blush" />
-          <div className="container">
-            <Suspense fallback={null}>
-              <Shapes
-                isHover={isHover}
-                isPress={isPress}
-                mouseX={mouseX}
-                mouseY={mouseY}
-              />
-            </Suspense>
-          </div>
-        </motion.div>
-        <motion.div
-          variants={{ hover: { scale: 0.75 }, press: { scale: 1.1 } }}
-          className="label mx-auto text-black" 
-        >
-          Download CV
-        </motion.div>
-      </motion.button>
-    </MotionConfig>
-  );
-}
+  function DownloadBtn() {
+    const [scope, animate] = useAnimate();
 
-export default DownloadBtn
+    const onButtonClick = () => {
+      const sparkles = Array.from({ length: 20 });
+      const sparklesAnimation = sparkles.map((_, index) => [
+        `.sparkle-${index}`,
+        {
+          x: randomNumberBetween(-100, 100),
+          y: randomNumberBetween(-100, 100),
+          scale: randomNumberBetween(1.5, 2.5),
+          opacity: 1,
+        },
+        {
+          duration: 0.4,
+          at: "<",
+        },
+      ]);
+
+      const sparklesFadeOut = sparkles.map((_, index) => [
+        `.sparkle-${index}`,
+        {
+          opacity: 0,
+          scale: 0,
+        },
+        {
+          duration: 0.3,
+          at: "<",
+        },
+      ]);
+
+      const sparklesReset = sparkles.map((_, index) => [
+        `.sparkle-${index}`,
+        {
+          x: 0,
+          y: 0,
+        },
+        {
+          duration: 0.000001,
+        },
+      ]);
+
+      animate([
+        ...sparklesReset,
+        [".letter", { y: -32 }, { duration: 0.2, delay: stagger(0.05) }],
+        ["button", { scale: 0.8 }, { duration: 0.1, at: "<" }],
+        ["button", { scale: 1 }, { duration: 0.1 }],
+        ...sparklesAnimation,
+        [".letter", { y: 0 }, { duration: 0.000001 }],
+        ...sparklesFadeOut,
+      ]);
+    };
+
+    return (
+      <div ref={scope}>
+        <button
+          onClick={onButtonClick}
+          className="relative rounded-full px-6 py-2 text-2xl text-[#1b8c73] transition-colors hover:bg-blue-100"
+        >
+          <span className="sr-only">Download Resumes</span>
+          <span className="h-8 overflow-hidden flex items-center" aria-hidden>
+            {["D", "o", "w", "n", "l", "o", "a", "d", " ", "R", "e", "s", "u", "m", "e", <IoCodeDownloadSharp /> ].map((letter, index) => (
+              <span
+                data-letter={letter}
+                className="letter relative inline-block h-8 leading-8 after:absolute after:left-0 after:top-full after:h-8 after:content-[attr(data-letter)]"
+                key={`${letter}-${index}`}
+              >
+                {letter} 
+              </span>
+            ))}
+          </span>
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 -z-10 block"
+          >
+            {Array.from({ length: 20 }).map((_, index) => (
+              <svg
+                className={`absolute left-1/2 top-1/2 opacity-0 sparkle-${index}`}
+                key={index}
+                viewBox="0 0 122 117"
+                width="10"
+                height="10"
+              >
+                <path
+                  className="fill-[#1b8c73]"
+                  d="M64.39,2,80.11,38.76,120,42.33a3.2,3.2,0,0,1,1.83,5.59h0L91.64,74.25l8.92,39a3.2,3.2,0,0,1-4.87,3.4L61.44,96.19,27.09,116.73a3.2,3.2,0,0,1-4.76-3.46h0l8.92-39L1.09,47.92A3.2,3.2,0,0,1,3,42.32l39.74-3.56L58.49,2a3.2,3.2,0,0,1,5.9,0Z"
+                />
+              </svg>
+            ))}
+          </span>
+        </button>
+      </div>
+    );
+  }
+
+  export default DownloadBtn;
