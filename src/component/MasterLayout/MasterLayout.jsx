@@ -46,43 +46,43 @@ const MasterLayout = () => {
         <>
         
             <div className="flex justify-center relative items-center lg:h-screen h-auto">
-              
+                
                 <div className="bg-white rounded-md lg:w-20 lg:h-auto py-3 md:w-24 md:h-[500px] fixed sm:sticky block z-20  w-full top-0 left-0 lg:mr-2 mr-0">
                     <div className="lg:flex lg:flex-col md:flex md:flex-col flex flex-row justify-center items-center lg:items-start">
                         {/* Avatar Icon */}
-                        <div onClick={() => onSubmit('about')} className="py-6 text-center mx-auto border-b-2 transition-all cursor-pointer border-gray-800 hover:border-blue-700 group">
-                            <RxAvatar className="text-2xl mx-auto text-gray-900 group-hover:text-blue-700" />
-                            <p className="text-gray-900 group-hover:text-blue-700">About</p>
+                        <div onClick={() => onSubmit('about')} className="py-6 text-center mx-auto border-b-2 transition-all cursor-pointer border-gray-800 hover:border-green-800 group">
+                            <RxAvatar className="text-2xl mx-auto text-gray-900 group-hover:text-green-800" />
+                            <p className="text-gray-900 group-hover:text-green-800">About</p>
                         </div>
                         <hr />
                         {/* Document Icon */}
-                        <div onClick={() => onSubmit('resume')} className="py-6 text-center mx-auto border-b-2 transition-all cursor-pointer border-black hover:border-blue-700 group">
-                            <IoDocumentText className="text-2xl mx-auto text-black group-hover:text-blue-700" />
-                            <p className="text-black group-hover:text-blue-700">Resume</p>
+                        <div onClick={() => onSubmit('resume')} className="py-6 text-center mx-auto border-b-2 transition-all cursor-pointer border-black hover:border-green-800 group">
+                            <IoDocumentText className="text-2xl mx-auto text-black group-hover:text-green-800" />
+                            <p className="text-black group-hover:text-green-800">Resume</p>
                         </div>
                         <hr />
                         {/* Paintbrush Icon */}
-                        <div onClick={() => onSubmit('works')} className="py-6 text-center mx-auto border-b-2 transition-all cursor-pointer border-black hover:border-blue-700 group">
-                            <FaPaintbrush className="text-2xl mx-auto text-black group-hover:text-blue-700" />
-                            <p className="text-black group-hover:text-blue-700">Works</p>
+                        <div onClick={() => onSubmit('works')} className="py-6 text-center mx-auto border-b-2 transition-all cursor-pointer border-black hover:border-green-800 group">
+                            <FaPaintbrush className="text-2xl mx-auto text-black group-hover:text-green-800" />
+                            <p className="text-black group-hover:text-green-800">Works</p>
                         </div>
                         <hr />
                         {/* Comments Icon */}
-                        <div onClick={() => onSubmit('blogs')} className="py-6 text-center mx-auto border-b-2 transition-all cursor-pointer border-black hover:border-blue-700 group">
-                            <FaComments className="text-2xl mx-auto text-black group-hover:text-blue-700" />
-                            <p className="text-black group-hover:text-blue-700">Blogs</p>
+                        <div onClick={() => onSubmit('blogs')} className="py-6 text-center mx-auto border-b-2 transition-all cursor-pointer border-black hover:border-green-800 group">
+                            <FaComments className="text-2xl mx-auto text-black group-hover:text-green-800" />
+                            <p className="text-black group-hover:text-green-800">Blogs</p>
                         </div>
                         {/* Contact Icon */}
-                        <div onClick={() => onSubmit('contact')} className="py-6 text-center mx-auto border-b-2 transition-all cursor-pointer border-black hover:border-blue-700 group">
-                            <BiSolidContact className="text-2xl mx-auto text-black group-hover:text-blue-700" />
-                            <p className="text-black group-hover:text-blue-700">Contact</p>
+                        <div onClick={() => onSubmit('contact')} className="py-6 text-center mx-auto border-b-2 transition-all cursor-pointer border-black hover:border-green-800 group">
+                            <BiSolidContact className="text-2xl mx-auto text-black group-hover:text-green-800" />
+                            <p className="text-black group-hover:text-green-800">Contact</p>
                         </div>
                     </div>
                 </div>
 
                 {/* Main content area */}
                 <div className="grid lg:grid-cols-2 sm:grid-cols-1 lg:gap-0 gap-4 lg:mt-0 md:mt-0 mt-14">
-                    <div className="card mastercard bg-white w-[500px] shadow-lg lg:mt-0 mt-16  rounded-md z-[10]">
+                    <div className="card mastercard bg-white lg:w-[500px] w-full shadow-lg lg:mt-0 mt-16  rounded-md z-[10]">
                         <div className="">
                             <img className="w-full" src="https://i.postimg.cc/W4HRXLs1/dfdf.png" alt="img" />
                             <div className="text-center text-black pb-6">
@@ -138,10 +138,7 @@ const MasterLayout = () => {
 
 
                 </div>
-                {/* <div ref={scope} className="z-10">
-                    <Menu />
-                    <MenuToggle toggle={() => setIsOpen(!isOpen)} />
-                </div> */}
+            
             </div>
         </>
     );

@@ -9,11 +9,11 @@ const Resume = () => {
 
   return (
     <div className="relative h-[600px]">
-
       <div className="card bg-white shadow-lg rounded-md h-full overflow-y-auto overflow-x-hidden">
 
+
         <div className="p-5">
-          <h1 className="text-black text-xl font-bold">About <span>me</span></h1>
+          <h1 className="text-green-800 text-xl font-bold">Resume</h1>
         </div>
         <hr />
 

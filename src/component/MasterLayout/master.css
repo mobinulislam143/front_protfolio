@@ -1,4 +1,4 @@
-.card.mastercard.bg-white.w-\[500px\].shadow-lg.rounded-md.z-\[10\]{
+.card.mastercard.bg-white.w-\[500px\].shadow-lg.lg\:mt-0.mt-16.rounded-md.z-\[10\]{
     box-shadow: -16px -16px rgb(2, 115, 74);
 }
 

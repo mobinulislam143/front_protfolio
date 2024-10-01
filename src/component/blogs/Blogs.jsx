@@ -39,7 +39,7 @@ const blogsData = [
     blogwriter: "David Clark",
   },
   // Add more blog data as needed
-];
+]; 
 
 const Blogs = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
@@ -69,6 +69,8 @@ const Blogs = () => {
   return (
     <div className="relative h-[600px]">
       <div className="card bg-white shadow-lg rounded-md h-full overflow-y-auto overflow-x-hidden">
+
+
         <div className="p-5">
           <h1 className="text-black text-xl font-bold">
             My <span className="text-[#1b8c73]">Blogs</span>
@@ -76,11 +78,11 @@ const Blogs = () => {
         </div>
         <hr />
 
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 p-3">
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 lg:px-0 md:px-0 px-3 ">
           {currentBlogs.map((blog) => (
             <div
               key={blog.id}
-              className="bg-white shadow-lg rounded-lg overflow-hidden"
+              className="bg-white shadow-lg rounded-lg overflow-hidden "
             >
               <img
                 src={blog.blogimg}

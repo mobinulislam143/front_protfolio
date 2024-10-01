@@ -82,14 +82,14 @@ const Works = () => {
   const totalPages = Math.ceil(portfolios.length / itemsPerPage);
 
   return (
-    <div className="relative h-[600px]">
+    <div className="relative h-[600px] pb-10">
       <div className="card bg-white shadow-lg rounded-md h-full overflow-y-auto overflow-x-hidden">
         <div className="p-5">
-          <h1 className="text-black text-xl font-bold">My <span>Project</span></h1>
+          <h1 className="text-black text-xl font-bold">My <span className="text-green-800">Project</span></h1>
         </div>
         <hr />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-6 lg:p-2 p-">
+        <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-6 lg:p-2">
           {currentPortfolios.map((portfolio, index) => (
             <Link onClick={() => handleReadMore(portfolio)} key={index} className="bg-white shadow-lg rounded-md overflow-hidden">
               <img src={portfolio.img} alt={portfolio.title} className="w-full h-56 object-cover transform hover:scale-105 transition duration-300" />
