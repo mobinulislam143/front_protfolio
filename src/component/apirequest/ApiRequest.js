@@ -4,7 +4,7 @@ import axios from "axios";
 
 const axiosPublic = useAxiosPublic();
 
-const backendUrl = `https://protfolio-backend-ml6i.onrender.com`
+const backendUrl = `https://protfolio-backend-wbgd.onrender.com`
 
 
 const ApiStore = create((set) => ({

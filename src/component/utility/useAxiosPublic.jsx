@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const backendUrl = `https://protfolio-backend-ml6i.onrender.com`;
+const backendUrl = `https://protfolio-backend-wbgd.onrender.com`;
 
 const axiosPublic = axios.create({
     baseURL: backendUrl  
