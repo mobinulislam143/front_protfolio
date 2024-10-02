@@ -5,7 +5,8 @@ import './resume.css'
 
 
 
-const Resume = () => {
+const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) => {
+  // console.log(frontendSkills)
 
   return (
     <div className="relative h-[600px]">
@@ -23,35 +24,47 @@ const Resume = () => {
 
           <div className="w-1/2 border-r px-1 pb-2 ">
             <p className="text-xl flex items-center gap-2 text-black pb-3"><AiFillBank className="text-green-800" /> Education</p><hr />
-            <div className="col border-b py-4">
-              <div className="badge badge-lg mt-2 bg-white text-black">2012-2020</div>
 
-              <h2 className="text-black py-3 text-lg font-semibold">Eidgah Adarsha Shiksha Niketon</h2>
-              <p className="text-gray-400 text-sm ">Eidgah, Cox'sBazar, Bangladesh</p>
-              <p className="text-gray-800 text-sm">Secondary School Certificate (SSC)</p>
-            </div>
-            <div className="col border-b py-4">
-              <div className="badge badge-lg mt-2 bg-white text-black">2012-2020</div>
 
-              <h2 className="text-black py-3 text-lg font-semibold">Eidgah Adarsha Shiksha Niketon</h2>
-              <p className="text-gray-400 text-sm ">Eidgah, Cox'sBazar, Bangladesh</p>
-              <p className="text-gray-800 text-sm">Secondary School Certificate (SSC)</p>
-            </div>
+            {!getEducation || getEducation.length === 0 ? (<p>Sorry, I can't find any education level</p>) : (
+              getEducation.map((item, index) => (
+                <div key={index} className="col border-b py-4">
+                  <div className="badge badge-lg mt-2 bg-white text-black">{item.passingyear}</div>
+
+                  <h2 className="text-black py-3 text-lg font-semibold">{item.institute}</h2>
+                  <p className="text-gray-400 text-sm ">Result: {item.result}</p>
+                  <p className="text-gray-800 text-sm">{item.degree}</p>
+                </div>
+
+              ))
+
+            )}
+
+
+           
           </div>
 
 
           <div className="w-1/2 border-r border-b px-1 pb-2 ">
-            <div className="col">
-              <p className="text-xl flex items-center gap-2 text-black pb-3"><HiMiniBriefcase className="text-green-800" /> Experience</p><hr />
-              <div className="badge badge-lg mt-2 bg-white text-black">2012-2020</div>
 
-              <h2 className="text-xs text-black py-3 uppercase ">EIDGAH ADARSHA SHIKSHA NIKETON</h2>
-              <p className="text-gray-700 text-sm">Modern and mobile-ready website that will help you reach all of your marketing.</p>
-            </div>
+            <p className="text-xl flex items-center gap-2 text-black pb-3"><HiMiniBriefcase className="text-green-800" /> Experience</p><hr />
+
+
+            {!getExperience || getExperience.length === 0 ? (<p>Sorry, I can't find any education level</p>) : (
+              getExperience.map((item, index) => (
+                <div key={index} className="col border-b py-4">
+                  <div className="badge badge-lg mt-2 bg-white text-black">{item.duration}</div>
+
+                  <h2 className="text-black py-3 text-lg font-semibold">{item.company}</h2>
+                  <p className="text-gray-400 text-sm ">{item.position}</p>
+                  <p className="text-gray-800 text-sm">{item.desc}</p>
+                </div>
+
+              ))
+
+            )}
 
           </div>
-
-
 
 
 
@@ -64,23 +77,35 @@ const Resume = () => {
         <div className="my-4">
           <div className="flex flex-wrap pt-5 items-start p-5">
 
-
             <div className="w-1/2 border-r px-1 pb-2 ">
               <p className="text-xl flex items-center gap-2 text-black pb-3"><img className="w-8" src="https://i.postimg.cc/R0P5xby6/front-end-1.png" alt="" />  Frontend</p><hr />
 
-              <div className="flex items-start border-b py-4">
-                <div className="text-center mx-auto border-r p-2">
-                  <div className="radial-progress text-[#1b8c73]" style={{ "--value": 70 }} role="progressbar">
-                    70%
-                  </div>
-                  <p className="text-lg text-black">Html, Css</p>
-                </div>
+              <div className="grid grid-cols-2 items-start border-b py-4">
+
+                {frontendSkills && frontendSkills.length > 0 ? (
+                  frontendSkills.map((skill, index) => (
+                    <div key={index} className="text-center mx-auto border-r p-2">
+                      <div
+                        className="radial-progress text-[#1b8c73]"
+                        style={{ "--value": skill.percentage }}
+                        role="progressbar"
+                      >
+                        {skill.percentage}%
+                      </div>
+                      <p className="text-xs text-black">{skill.skillName}</p>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-center col-span-2">No skills available.</p>
+                )}
+
+                {/* 
                 <div className="text-center mx-auto  p-2">
                   <div className="radial-progress text-[#1b8c73]" style={{ "--value": 70 }} role="progressbar">
                     70%
                   </div>
                   <p className="text-lg text-black">Html, Css</p>
-                </div>
+                </div> */}
               </div>
 
             </div>

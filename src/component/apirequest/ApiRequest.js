@@ -67,6 +67,37 @@ const ApiStore = create((set) => ({
             console.error("Error fetching intro data", error);
         }
     },
+    frontendSkills: [],
+    getfrontendskillsRequest: async () => {
+        try {
+            const res = await axiosPublic.get(`/api/getfrontendskills`);
+            if (res.data.status === "success") {
+                console.log('My frontend skills in', res.data['data'][0].frontendskills);
+                set({ frontendSkills: res.data['data'][0].frontendskills });
+    
+            } else {
+                console.error("Failed to fetch intro data");
+            }
+        } catch (error) {
+            console.error("Error fetching intro data", error);
+        }
+    },
+    
+    backendSkills: [],
+    getbackendskillsRequest: async () => {
+        try {
+            const res = await axiosPublic.get(`/api/getbackendskills`);
+            if (res.data.status === "success") {
+                set({ backendSkills: res.data["data"] });
+
+            } else {
+                console.error("Failed to fetch intro data");
+            }
+        } catch (error) {
+            console.error("Error fetching intro data", error);
+        }
+    },
+
     getExperience: [],
     getExperienceRequest: async () => {
         try {

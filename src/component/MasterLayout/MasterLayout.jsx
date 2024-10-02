@@ -21,12 +21,16 @@ import MasterImgSkeleton from "../allskeleton/MasterImgSkeleton";
 
 
 const MasterLayout = () => {
-    const { getIntroDetails, getIntroRequest, getServiceList, getServiceRequest } = ApiStore();
+    const { getIntroDetails, getIntroRequest, getServiceList, getServiceRequest, getEducation, getEducationRequest, getExperience, getExperienceRequest, frontendSkills, getfrontendskillsRequest, backendSkills, getbackendskillsRequest } = ApiStore();
   
     useEffect(() => {
       (async () => {
         await getIntroRequest();
         await getServiceRequest();
+        await getEducationRequest();
+        await getExperienceRequest();
+        await getfrontendskillsRequest()
+        await getbackendskillsRequest()
       })();
     }, []);
   
@@ -133,7 +137,7 @@ const MasterLayout = () => {
   
             <div className={`transition-all duration-500 ${isExiting ? "opacity-0 transform -translate-x-full" : isEntering ? "opacity-100 transform translate-x-0" : ""} w-full lg:w-[500px]`}>
               {selectedComponent === "about" && <About getServiceList={getServiceList} />}
-              {selectedComponent === "resume" && <Resume />}
+              {selectedComponent === "resume" && <Resume getExperience={getExperience} getEducation={getEducation} frontendSkills={frontendSkills} backendSkills={backendSkills} />}
               {selectedComponent === "works" && <Works />}
               {selectedComponent === "blogs" && <Blogs />}
               {selectedComponent === "contact" && <Contact />}
