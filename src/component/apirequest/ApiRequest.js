@@ -4,7 +4,7 @@ import axios from "axios";
 
 const axiosPublic = useAxiosPublic();
 
-const backendUrl = `https://protfolio-backend-re1g.onrender.com`
+const backendUrl = `https://protfolio-backend-ml6i.onrender.com`
 
 
 const ApiStore = create((set) => ({
@@ -88,7 +88,7 @@ const ApiStore = create((set) => ({
         try {
             const res = await axiosPublic.get(`/api/getbackendskills`);
             if (res.data.status === "success") {
-                set({ backendSkills: res.data["data"] });
+                set({ backendSkills: res.data["data"][0].backendskills });
 
             } else {
                 console.error("Failed to fetch intro data");

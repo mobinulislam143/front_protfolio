@@ -18,6 +18,7 @@ import { FaGithub } from "react-icons/fa6";
 import DownloadBtn from "../utility/DownloadBtn";
 import ApiStore from "../apirequest/ApiRequest";
 import MasterImgSkeleton from "../allskeleton/MasterImgSkeleton";
+import './master.css'
 
 
 const MasterLayout = () => {

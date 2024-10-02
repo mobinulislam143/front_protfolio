@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { HiMiniBriefcase } from "react-icons/hi2";
 import { AiFillBank } from "react-icons/ai";
 import './resume.css'
@@ -6,7 +6,21 @@ import './resume.css'
 
 
 const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) => {
-  // console.log(frontendSkills)
+  console.log(backendSkills)
+
+  const [loading, setLoading] = useState(true); // Initial state set to true for loading
+
+  // Simulate fetching data
+  useEffect(() => {
+    const fetchData = async () => {
+      // Simulate a network request
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // After fetching data, set loading to false
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="relative h-[600px]">
@@ -41,7 +55,7 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
             )}
 
 
-           
+
           </div>
 
 
@@ -82,22 +96,35 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
 
               <div className="grid grid-cols-2 items-start border-b py-4">
 
-                {frontendSkills && frontendSkills.length > 0 ? (
-                  frontendSkills.map((skill, index) => (
-                    <div key={index} className="text-center mx-auto border-r p-2">
-                      <div
-                        className="radial-progress text-[#1b8c73]"
-                        style={{ "--value": skill.percentage }}
-                        role="progressbar"
-                      >
-                        {skill.percentage}%
+                {loading ? (
+                  // Show skeletons while loading
+                  <div className="grid grid-cols-2 gap-4"> {/* Use grid layout for two columns */}
+                    {Array.from({ length: 4 }).map((_, index) => (
+                      <div key={index} className="text-center"> {/* Remove margins */}
+                        <div className="skeleton h-16 w-16 shrink-0 rounded-full"></div>
+                        <p className="text-xs text-black">Loading...</p>
                       </div>
-                      <p className="text-xs text-black">{skill.skillName}</p>
-                    </div>
-                  ))
+                    ))}
+                  </div>
                 ) : (
-                  <p className="text-center col-span-2">No skills available.</p>
+                  frontendSkills && frontendSkills.length > 0 ? (
+                    frontendSkills.map((skill, index) => (
+                      <div key={index} data-aos="fade-up" className="text-center mx-auto border-r p-2">
+                        <div
+                          className="radial-progress text-[#1b8c73]"
+                          style={{ "--value": skill.percentage }}
+                          role="progressbar"
+                        >
+                          {skill.percentage}%
+                        </div>
+                        <p className="text-xs text-black">{skill.skillName}</p>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-center col-span-2">No skills available.</p>
+                  )
                 )}
+
 
                 {/* 
                 <div className="text-center mx-auto  p-2">
@@ -115,22 +142,28 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
               </p>
               <hr />
               <div className="col border-b py-4">
-                <span className="text-black">
-                  Node.js
-                  <progress className="progress w-full" value="70" max="100"></progress>
-                </span>
-                <span className="text-black">
-                  Node.js
-                  <progress className="progress w-full" value="70" max="100"></progress>
-                </span>
-                <span className="text-black">
-                  Node.js
-                  <progress className="progress w-full" value="70" max="100"></progress>
-                </span>
-                <span className="text-black">
-                  Node.js
-                  <progress className="progress w-full" value="70" max="100"></progress>
-                </span>
+
+                {loading ? (
+                  // Show skeletons while loading
+                  <div className="flex flex-col space-y-2">
+                    {Array.from({ length: 4 }).map((_, index) => (
+                      <div key={index} className="skeleton h-4 w-full"></div>
+                    ))}
+                  </div>
+
+                ) : (
+                  backendSkills && backendSkills.length > 0 ? (
+                    backendSkills.map((skill, index) => (
+                      <div data-aos="fade-up" key={index} className="mb-4">
+                        <span className="text-black font-bold">{skill.skillName}</span>
+                        <progress className="progress w-full progress-secondary" value={skill.percentage} max="100"></progress>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-center col-span-2">No skills available.</p>
+                  )
+                )}
+
               </div>
             </div>
 
