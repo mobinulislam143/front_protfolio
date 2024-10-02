@@ -119,7 +119,7 @@ const Resume = () => {
         <hr />
 
         <div className=" py-4">
-          <p className="text-center text-gray-600">"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aspernatur nihil nesciunt perferendis,"</p>
+          <p className="text-center text-gray-800">“Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do.”</p>
         </div>
 
       </div>

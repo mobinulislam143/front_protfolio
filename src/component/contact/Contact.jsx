@@ -1,5 +1,5 @@
 import React from "react";
-import GoogleMapReact from '../../../node_modules/google-map-react';
+import GoogleMapReact from 'google-map-react';
 
 import { Link } from "react-router-dom";
 import { IoArrowRedoCircle } from "react-icons/io5";
