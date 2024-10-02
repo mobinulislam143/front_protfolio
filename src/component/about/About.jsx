@@ -9,10 +9,10 @@ import ApiStore from "../apirequest/ApiRequest";
 
 
 
-const About = ({getServiceList}) => {
+const About = ({ getServiceList }) => {
 
 
- 
+
   console.log(getServiceList)
 
 
@@ -50,8 +50,7 @@ const About = ({getServiceList}) => {
 
 
           <div className="flex flex-wrap pt-5 items-center p-5">
-            {getServiceList.length === 0 ? (
-              
+            {!getServiceList || getServiceList.length === 0 ? (
               <div className="w-1/2 border-r border-b px-1 pb-2">
                 <div className="rounded-full w-20 h-20 bg-gray-200 animate-pulse flex justify-center items-center"></div>
                 <h2 className="text-xs text-gray-300 py-3 animate-pulse">Loading...</h2>
@@ -59,22 +58,20 @@ const About = ({getServiceList}) => {
               </div>
             ) : (
               getServiceList.map((item, index) => (
-              <div key={index} className="w-1/2 border-r border-b px-1 pb-2">
-                <div className="rounded-full w-20 h-20 bg-green-100 p-6 flex justify-center items-center">
-                  <img
-                    src={item['img1']}
-                    className="object-contain"
-                    alt="HTML5 Logo"
-                  />
+                <div key={index} className="w-1/2 border-r border-b px-1 pb-2">
+                  <div className="rounded-full w-20 h-20 bg-green-100 p-6 flex justify-center items-center">
+                    <img
+                      src={item['img1']}
+                      className="object-contain"
+                      alt={`${item['serviceName']} Logo`}
+                    />
+                  </div>
+                  <h2 className="text-xs text-black py-3">{item['serviceName']}</h2>
+                  <p className="text-gray-700 text-sm">{item['serviceDesc']}</p>
                 </div>
-                <h2 className="text-xs text-black py-3">{item['serviceName']}</h2>
-                <p className="text-gray-700 text-sm">
-                {item['serviceDesc']}
-                </p>
-              </div>
-
               ))
             )}
+
 
 
             {/* <div className="w-1/2 border-b px-1 pb-2">
