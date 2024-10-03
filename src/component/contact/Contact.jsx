@@ -1,34 +1,34 @@
 import React from "react";
-import GoogleMapReact from 'google-map-react';
+// import GoogleMapReact from 'google-map-react';
 import { Link } from "react-router-dom";
 import { IoArrowRedoCircle } from "react-icons/io5";
 
 
 
-const AnyReactComponent = ({ text }) => (
-  <div style={{
-    color: 'white',
-    background: 'red',
-    padding: '10px 15px',
-    display: 'inline-flex',
-    textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: '100%',
-    transform: 'translate(-50%, -50%)'
-  }}>
-    {text}
-  </div>
-);
+// const AnyReactComponent = ({ text }) => (
+//   <div style={{
+//     color: 'white',
+//     background: 'red',
+//     padding: '10px 15px',
+//     display: 'inline-flex',
+//     textAlign: 'center',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     borderRadius: '100%',
+//     transform: 'translate(-50%, -50%)'
+//   }}>
+//     {text}
+//   </div>
+// );
 
 const Contact = () => {
-  const defaultProps = {
-    center: {
-      lat: 10.99835602,
-      lng: 77.01502627
-    },
-    zoom: 11
-  };
+  // const defaultProps = {
+  //   center: {
+  //     lat: 10.99835602,
+  //     lng: 77.01502627
+  //   },
+  //   zoom: 11
+  // };
 
   return (
     <div className="relative h-[600px]">
@@ -42,7 +42,7 @@ const Contact = () => {
         </div>
         <hr />
 
-        <div className="p-5">
+        {/* <div className="p-5">
           <h2 className="text-lg font-semibold text-gray-700 mb-4">Our Location</h2>
           <div style={{ height: '400px', width: '100%' }}>
             <GoogleMapReact
@@ -57,7 +57,7 @@ const Contact = () => {
               />
             </GoogleMapReact>
           </div>
-        </div>
+        </div> */}
 
         <div className="p-5">
           <h1 className="text-black text-xl font-bold">
