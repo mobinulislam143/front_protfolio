@@ -5,6 +5,7 @@ import axios from "axios";
 const axiosPublic = useAxiosPublic();
 
 const backendUrl = `https://protfolio-backend-wbgd.onrender.com`
+const localUrl = `http://localhost:7000`
 
 
 const ApiStore = create((set) => ({
@@ -25,20 +26,20 @@ const ApiStore = create((set) => ({
             console.error("Error fetching intro data", error);
         }
     },
-    getBlogs: [],
+    getBlogsList: [],
     getblogRequest: async () => {
         try {
-            const res = await axiosPublic.get(`/api/getblogs`);
+            const res = await axios.get(`${backendUrl}/api/getblogs`);
             if (res.data.status === "success") {
-                set({ getBlogs: res.data["data"] });
-
-            } else {
-                console.error("Failed to fetch intro data");
-            }
+                console.log(' my blog is: fuck you', res.data['data'])
+            set({ getBlogsList: res.data.data });
+          } else {
+            console.error("Failed to fetch blog data");
+          }
         } catch (error) {
-            console.error("Error fetching intro data", error);
+          console.error("Error fetching blog data", error);
         }
-    },
+      },
     getBlogDetails: [],
     getblogDetailsRequest: async (id) => {
         try {
@@ -146,6 +147,34 @@ const ApiStore = create((set) => ({
             const res = await axios.get(`${backendUrl}/api/getservices`);
             if (res.data.status === "success") {
                 set({ getServiceList: res.data["data"] });
+
+            } else {
+                console.error("Failed to fetch intro data");
+            }
+        } catch (error) {
+            console.error("Error fetching intro data", error);
+        }
+    },
+    getPortfolioList: [],
+    getPortfolioRequest: async () => {
+        try {
+            const res = await axios.get(`${backendUrl}/api/getportfolios`);
+            if (res.data.status === "success") {
+                set({ getPortfolioList: res.data["data"] });
+
+            } else {
+                console.error("Failed to fetch intro data");
+            }
+        } catch (error) {
+            console.error("Error fetching intro data", error);
+        }
+    },
+    PortfolioDetails: [],
+    getPortfolioDetailsRequest: async (id) => {
+        try {
+            const res = await axios.get(`${backendUrl}/api/getportfolio/${id}`);
+            if (res.data.status === "success") {
+                set({ PortfolioDetails: res.data["data"] });
 
             } else {
                 console.error("Failed to fetch intro data");

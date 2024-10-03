@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GiTireIronCross } from "react-icons/gi"; // Import your icon or use another method for the close button
 
-const Works = () => {
+const Works = ({getPortfolioList}) => {
   const [selectedPortfolio, setSelectedPortfolio] = useState(null); // State for the selected portfolio
   const [currentPage, setCurrentPage] = useState(1); // State for current page
   const itemsPerPage = 4; // Number of items to show per page
@@ -90,8 +90,11 @@ const Works = () => {
         <hr />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-6 lg:p-2">
-          {currentPortfolios.map((portfolio, index) => (
-            <Link onClick={() => handleReadMore(portfolio)} key={index} className="bg-white shadow-lg rounded-md overflow-hidden">
+        
+
+          {!getPortfolioList || getPortfolioList.length === 0?(<p>Sorry, You have no work project</p>): (
+            getPortfolioList.map((portfolio,index) => (
+              <Link onClick={() => handleReadMore(portfolio)} key={index} className="bg-white shadow-lg rounded-md overflow-hidden">
               <img src={portfolio.img} alt={portfolio.title} className="w-full h-56 object-cover transform hover:scale-105 transition duration-300" />
               <div className="p-4">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">{portfolio.title}</h3>
@@ -123,7 +126,10 @@ const Works = () => {
                 </div>
               </div>
             </Link>
-          ))}
+            ))
+          )}
+
+          
         </div>
 
         <div className="flex justify-center space-x-2 mt-4">

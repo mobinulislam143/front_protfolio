@@ -22,8 +22,9 @@ import './master.css'
 
 
 const MasterLayout = () => {
-    const { getIntroDetails, getIntroRequest, getServiceList, getServiceRequest, getEducation, getEducationRequest, getExperience, getExperienceRequest, frontendSkills, getfrontendskillsRequest, backendSkills, getbackendskillsRequest } = ApiStore();
+    const { getIntroDetails, getIntroRequest, getServiceList, getServiceRequest, getEducation, getEducationRequest, getExperience, getExperienceRequest, frontendSkills, getfrontendskillsRequest, backendSkills, getbackendskillsRequest, getPortfolioList, getPortfolioRequest, getBlogsList, getblogRequest } = ApiStore();
   
+    // console.log(' my blog is: ', getBlogsList)
     useEffect(() => {
       (async () => {
         await getIntroRequest();
@@ -32,6 +33,8 @@ const MasterLayout = () => {
         await getExperienceRequest();
         await getfrontendskillsRequest()
         await getbackendskillsRequest()
+        await getPortfolioRequest()
+        await getblogRequest()
       })();
     }, []);
   
@@ -139,8 +142,8 @@ const MasterLayout = () => {
             <div className={`transition-all duration-500 ${isExiting ? "opacity-0 transform -translate-x-full" : isEntering ? "opacity-100 transform translate-x-0" : ""} w-full lg:w-[500px]`}>
               {selectedComponent === "about" && <About getServiceList={getServiceList} />}
               {selectedComponent === "resume" && <Resume getExperience={getExperience} getEducation={getEducation} frontendSkills={frontendSkills} backendSkills={backendSkills} />}
-              {selectedComponent === "works" && <Works />}
-              {selectedComponent === "blogs" && <Blogs />}
+              {selectedComponent === "works" && <Works getPortfolioList={getPortfolioList} />}
+              {selectedComponent === "blogs" && <Blogs getBlogsList={getBlogsList} />}
               {selectedComponent === "contact" && <Contact />}
             </div>
           </div>
