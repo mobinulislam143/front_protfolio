@@ -19,6 +19,7 @@ import DownloadBtn from "../utility/DownloadBtn";
 import ApiStore from "../apirequest/ApiRequest";
 import MasterImgSkeleton from "../allskeleton/MasterImgSkeleton";
 import './master.css'
+import myCv from "../../assets/cv_mahi_mern.pdf"
 
 
 const MasterLayout = () => {
@@ -128,9 +129,9 @@ const MasterLayout = () => {
                       </span>
                     </div>
   
-                    <NavLink className='mx-auto flex items-center gap-4 justify-center text-black text-lg cursor-pointer py-4 mb-3 mt-10 border-t'>
+                    <a href={myCv} target="_blank" className='mx-auto flex items-center gap-4 justify-center text-black text-lg cursor-pointer py-4 mb-3 mt-10 border-t'>
                       <DownloadBtn />
-                    </NavLink>
+                    </a>
                   </>
                 ) : (
                   // Render a loading state or skeleton while data is being fetched
