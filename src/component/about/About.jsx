@@ -9,11 +9,11 @@ import ApiStore from "../apirequest/ApiRequest";
 
 
 
-const About = ({ getServiceList }) => {
+const About = ({ getServiceList, getIntroDetails }) => {
 
 
 
-  console.log(getServiceList)
+  console.log("my description is: ", getIntroDetails)
 
 
 
@@ -34,7 +34,11 @@ const About = ({ getServiceList }) => {
           <hr />
           <div className="p-4 text-black">
 
-            <p className="text-lg text-gray-700"> <b>Hello! I’m Mahi.</b> dfdfd</p>
+            <p className="text-lg text-gray-700"> <b>Hello! I’m Mahi.</b> {getIntroDetails.length> 0?(
+              <>
+                {getIntroDetails[0]['desc']}
+              </>
+            ):(<p>not found description</p>)}</p>
             <div className="flex flex-wrap pt-5 text-[18px]">
               <p className="w-1/2">Age........20</p>
               <p className="w-1/2">Residence ........Cox'sBazar</p>

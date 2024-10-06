@@ -141,7 +141,7 @@ const MasterLayout = () => {
             </div>
   
             <div className={`transition-all duration-500 ${isExiting ? "opacity-0 transform -translate-x-full" : isEntering ? "opacity-100 transform translate-x-0" : ""} w-full lg:w-[500px]`}>
-              {selectedComponent === "about" && <About getServiceList={getServiceList} />}
+              {selectedComponent === "about" && <About getServiceList={getServiceList} getIntroDetails={getIntroDetails} />}
               {selectedComponent === "resume" && <Resume getExperience={getExperience} getEducation={getEducation} frontendSkills={frontendSkills} backendSkills={backendSkills} />}
               {selectedComponent === "works" && <Works getPortfolioList={getPortfolioList} />}
               {selectedComponent === "blogs" && <Blogs getBlogsList={getBlogsList} />}
