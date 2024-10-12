@@ -97,12 +97,14 @@ const MasterLayout = () => {
                 <img className="w-full" src={getIntroDetails[0]['img1']} alt="img" />
                 <div className="text-center text-white pb-6">
                   <h1 className="text-3xl font-semibold py-4">{getIntroDetails[0]['name']}</h1>
-                  <h1 className="text-lg font-semibold pb-4 text-green-800">
+                  <h1 className="text-lg font-semibold pb-4 text-bg_secondary">
                     <TypeAnimation
                       sequence={[
                         'Mern Stack developer',
                         1000,
-                        'Full Stack Developer',
+                        'Frontend Developer',
+                        1000,
+                        'Backend Developer',
                         1000,
                         'Programmer',
                         1000,
@@ -130,7 +132,7 @@ const MasterLayout = () => {
                   </span>
                 </div>
 
-                <a href={myCv} target="_blank" className='mx-auto flex items-center gap-4 justify-center text-white text-lg cursor-pointer py-4 mt-32 border-t'>
+                <a href={myCv} className='mx-auto flex items-center gap-4 justify-center text-white text-lg cursor-pointer py-4 mt-32 border-t'>
                   <DownloadBtn />
                 </a>
               </>

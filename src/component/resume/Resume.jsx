@@ -23,11 +23,11 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
   }, []);
 
   return (
-    <div className="h-[600px] card bg-gray-800 shadow-lg rounded-md  overflow-y-auto overflow-x-hidden">
+    <div className="h-[600px] card bg-bg_primary shadow-lg rounded-md  overflow-y-auto overflow-x-hidden">
 
 
         <div className="p-5">
-          <h1 className="text-green-800 text-xl font-bold">Resume</h1>
+          <h1 className="text-bg_secondary text-xl font-bold"><span className="text-white">R</span>esume</h1>
         </div>
         <hr />
 
@@ -176,7 +176,7 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
         <hr />
 
         <div className=" py-4">
-          <p className="text-center text-gray-800">“Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do.”</p>
+          <p className="text-center text-white">“Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do.”</p>
         </div>
 
     </div>

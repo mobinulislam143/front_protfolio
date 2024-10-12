@@ -27,7 +27,7 @@ const About = ({ getServiceList, getIntroDetails }) => {
 
         <div className="">
           <div className="p-5">
-            <h1 className=" text-xl text-white font-bold">About <span className="text-green-800">me</span></h1>
+            <h1 className=" text-xl text-white font-bold">About <span className="text-bg_secondary">me</span></h1>
           </div>
           <hr />
           <div className="p-4 text-white">

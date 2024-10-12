@@ -62,11 +62,11 @@
       <div ref={scope}>
         <button
           onClick={onButtonClick}
-          className="relative rounded-full px-6 py-2 text-2xl text-[#1b8c73] transition-colors hover:bg-blue-100"
+          className="relative rounded-full px-6 py-2 text-2xl text-bg_secondary transition-colors hover:bg-blue-100"
         >
           <span className="sr-only">Download Resumes</span>
           <span className="h-8 overflow-hidden flex items-center" aria-hidden>
-            {["D", "o", "w", "n", "l", "o", "a", "d", " ", "R", "e", "s", "u", "m", "e", <IoCodeDownloadSharp /> ].map((letter, index) => (
+            {["D", "o", "w", "n", "l", "o", "a", "d", "_", "R", "e", "s", "u", "m", "e", ].map((letter, index) => (
               <span
                 data-letter={letter}
                 className="letter relative inline-block h-8 leading-8 after:absolute after:left-0 after:top-full after:h-8 after:content-[attr(data-letter)]"
@@ -89,7 +89,7 @@
                 height="10"
               >
                 <path
-                  className="fill-[#1b8c73]"
+                  className="fill-bg_secondary"
                   d="M64.39,2,80.11,38.76,120,42.33a3.2,3.2,0,0,1,1.83,5.59h0L91.64,74.25l8.92,39a3.2,3.2,0,0,1-4.87,3.4L61.44,96.19,27.09,116.73a3.2,3.2,0,0,1-4.76-3.46h0l8.92-39L1.09,47.92A3.2,3.2,0,0,1,3,42.32l39.74-3.56L58.49,2a3.2,3.2,0,0,1,5.9,0Z"
                 />
               </svg>
