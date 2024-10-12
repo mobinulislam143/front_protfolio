@@ -61,8 +61,8 @@ const MasterLayout = () => {
     <div className="container mx-auto">
 
       <div className="grid lg:grid-cols-12 gap-0 lg:mt-0 md:mt-0 mt-14 sm:grid-cols-1 justify-center items-center lg:h-screen h-auto">
-        <div className="bg-bg_primary rounded-md lg:w-[70px] lg:h-auto py-3 md:w-24 md:h-[500px] fixed sm:sticky block z-20 w-full top-0 left-0 mx-auto">          
-          <div className="lg:flex lg:flex-col md:flex md:flex-col flex flex-row justify-center items-center lg:items-start">
+        <div className="bg-bg_primary rounded-md lg:w-[70px]   fixed sm:sticky block z-20 w-full top-0 left-0 mx-auto">          
+          <div className="lg:flex lg:flex-col md:flex md:flex-row flex flex-row justify-center items-center lg:items-start">
           <div onClick={() => onSubmit("about")} className="py-6 text-center mx-auto border-b-2 transition-all cursor-pointer border-white hover:border-yellow-500 group">
             <RxAvatar className="text-2xl mx-auto text-white group-hover:text-yellow-500" />
             <p className="text-white group-hover:text-yellow-500">About</p>
@@ -89,7 +89,7 @@ const MasterLayout = () => {
         </div>
         </div>
 
-        <div className="card mastercard bg-bg_primary shadow-lg shadow-gray-800 lg:mt-0 mt-16 rounded-md z-[10] h-[630px] lg:col-span-4 ">
+        <div className="card mastercard bg-bg_primary shadow-lg shadow-gray-800 lg:mt-0 mt-16 rounded-md z-[10] lg:h-[630px] lg:col-span-4 sm:h-auto">
           <div className="">
             {/* Check if getIntroDetails has data before rendering */}
             {getIntroDetails.length > 0 ? (
@@ -132,7 +132,7 @@ const MasterLayout = () => {
                   </span>
                 </div>
 
-                <a href={myCv} className='mx-auto flex items-center gap-4 justify-center text-white text-lg cursor-pointer py-4 mt-32 border-t'>
+                <a href={myCv} className='mx-auto flex items-center gap-4 justify-center text-white text-lg cursor-pointer py-4  border-t'>
                   <DownloadBtn />
                 </a>
               </>
