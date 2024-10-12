@@ -82,8 +82,7 @@ const Works = ({getPortfolioList}) => {
   const totalPages = Math.ceil(portfolios.length / itemsPerPage);
 
   return (
-    <div className="relative h-[600px] pb-10">
-      <div className="card bg-white shadow-lg rounded-md h-full overflow-y-auto overflow-x-hidden">
+    <div className="h-[600px] card bg-gray-800 shadow-lg rounded-md  overflow-y-auto overflow-x-hidden">
         <div className="p-5">
           <h1 className="text-black text-xl font-bold">My <span className="text-green-800">Project</span></h1>
         </div>
@@ -191,7 +190,6 @@ const Works = ({getPortfolioList}) => {
             </div>
           </div>
         )}
-      </div>
     </div>
   );
 };

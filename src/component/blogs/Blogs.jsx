@@ -30,8 +30,7 @@ const Blogs = ({ getBlogsList }) => {
   };
 
   return (
-    <div className="relative h-[600px]">
-      <div className="card bg-white shadow-lg rounded-md h-full overflow-y-auto overflow-x-hidden">
+    <div className="h-[600px] card bg-gray-800 shadow-lg rounded-md  overflow-y-auto overflow-x-hidden">
         <div className="p-5">
           <h1 className="text-black text-xl font-bold">
             My <span className="text-[#1b8c73]">Blogs</span>
@@ -119,7 +118,6 @@ const Blogs = ({ getBlogsList }) => {
           <p>dlkfjsdlk</p>
           <PhotoGallery/>
         </div>
-      </div>
     </div>
   );
 };

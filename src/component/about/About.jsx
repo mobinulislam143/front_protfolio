@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
-import { FaBatteryHalf } from "react-icons/fa6";
-import { CiBatteryFull } from "react-icons/ci";
+import { GiEagleEmblem } from "react-icons/gi";
+import { IoMdBonfire } from "react-icons/io";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -22,19 +22,17 @@ const About = ({ getServiceList, getIntroDetails }) => {
   return (
 
 
-    <div className="relative h-[600px] ">
-
-      <div className="card bg-white shadow-lg w-[500px] rounded-md h-full overflow-y-auto overflow-x-hidden">
+    <div className="h-[600px] card bg-bg_primary shadow-lg rounded-md  overflow-y-auto overflow-x-hidden">
 
 
         <div className="">
           <div className="p-5">
-            <h1 className=" text-xl text-black font-bold">About <span className="text-green-800">me</span></h1>
+            <h1 className=" text-xl text-white font-bold">About <span className="text-green-800">me</span></h1>
           </div>
           <hr />
-          <div className="p-4 text-black">
+          <div className="p-4 text-white">
 
-            <p className="text-lg text-gray-700"> <b>Hello! I’m Mahi.</b> {getIntroDetails.length> 0?(
+            <p className="text-lg text-white"> <b>Hello! I’m Mahi.</b> {getIntroDetails.length> 0?(
               <>
                 {getIntroDetails[0]['desc']}
               </>
@@ -48,7 +46,7 @@ const About = ({ getServiceList, getIntroDetails }) => {
             </div>
           </div>
           <div className="p-5">
-            <h1 className="text-black text-xl font-bold">Services</h1>
+            <h1 className="text-white text-xl font-bold">Services</h1>
           </div>
           <hr />
 
@@ -70,48 +68,28 @@ const About = ({ getServiceList, getIntroDetails }) => {
                       alt={`${item['serviceName']} Logo`}
                     />
                   </div>
-                  <h2 className="text-xs text-black py-3">{item['serviceName']}</h2>
+                  <h2 className="text-xs text-white py-3">{item['serviceName']}</h2>
                   <p className="text-gray-700 text-sm">{item['serviceDesc']}</p>
                 </div>
               ))
             )}
 
 
-
-            {/* <div className="w-1/2 border-b px-1 pb-2">
-              <div className="rounded-full w-20 h-20  bg-green-100 p-6 flex justify-center items-center">
-                <img src="https://seeklogo.com/images/H/html5-with-wordmark-black-white-logo-A6222B77EC-seeklogo.com.png" className="object-contain " alt="" />
-              </div>
-              <h2 className="text-xs text-black py-3">Html</h2>
-              <p className="text-gray-700 text-sm">Modern and mobile-ready website that will help you reach all of your marketing.</p>
-            </div>
-            <div className="w-1/2 border-b px-1 pb-2">
-              <div className="rounded-full w-20 h-20  bg-green-100 p-6 flex justify-center items-center">
-                <img src="https://seeklogo.com/images/H/html5-with-wordmark-black-white-logo-A6222B77EC-seeklogo.com.png" className="object-contain " alt="" />
-              </div>
-              <h2 className="text-xs text-black py-3">Html</h2>
-              <p className="text-gray-700 text-sm">Modern and mobile-ready website that will help you reach all of your marketing.</p>
-            </div>
-            <div className="w-1/2 border-b px-1 pb-2">
-              <div className="rounded-full w-20 h-20  bg-green-100 p-6 flex justify-center items-center">
-                <img src="https://seeklogo.com/images/H/html5-with-wordmark-black-white-logo-A6222B77EC-seeklogo.com.png" className="object-contain " alt="" />
-              </div>
-              <h2 className="text-xs text-black py-3">Html</h2>
-              <p className="text-gray-700 text-sm">Modern and mobile-ready website that will help you reach all of your marketing.</p>
-            </div> */}
           </div>
 
 
           <div className="p-5">
-            <h1 className="text-black text-xl font-bold">Pricing</h1>
+            <h1 className="text-white text-xl font-bold">Pricing</h1>
           </div>
           <hr />
 
           <div className="flex flex-wrap pt-5 items-center p-5">
-            <div className="border-t border-r p-2 w-1/2 text-center">
-              <FaBatteryHalf className="mx-auto text-4xl text-green-700" />
-              <p className="text-2xl text-black font-semibold mb-2">Basic</p>
-              <span className="text-black ">
+            <div className=" border-r p-2 w-1/2 text-center">
+             <div className="border-2 mx-auto w-16 h-16 border-bg_secondary p-3 rounded-full">
+              <IoMdBonfire  className="mx-auto text-4xl text-bg_secondary " />
+             </div>
+              <p className="text-2xl text-white font-semibold mb-2">Basic</p>
+              <span className="text-white ">
 
                 <h1 className="text-3xl"><sup>$</sup>20 hour</h1>
 
@@ -125,10 +103,12 @@ const About = ({ getServiceList, getIntroDetails }) => {
               </div>
 
             </div>
-            <div className="border-t border-r p-2 w-1/2 text-center">
-              <CiBatteryFull className="mx-auto text-4xl text-green-700" />
-              <p className="text-2xl text-black font-semibold mb-2">Premimum</p>
-              <span className="text-black ">
+            <div className=" border-r p-2 w-1/2 text-center">
+              <div className="border-2 mx-auto w-16 h-16 border-bg_secondary p-3 rounded-full">
+                <GiEagleEmblem  className="mx-auto text-4xl text-bg_secondary " />
+             </div>
+              <p className="text-2xl text-white font-semibold mb-2">Premimum</p>
+              <span className="text-white ">
 
                 <h1 className="text-3xl"><sup>$</sup>30 hour</h1>
 
@@ -144,10 +124,10 @@ const About = ({ getServiceList, getIntroDetails }) => {
           </div>
 
           <div className="p-5">
-            <h1 className="text-black text-xl font-bold">Testomonial</h1>
+            <h1 className="text-white text-xl font-bold">Testomonial</h1>
           </div>
           <hr />
-          <div>
+          {/* <div>
             <Swiper pagination={true} modules={[Pagination]} className="mySwiper my-10 hover:cursor-pointer">
 
               <SwiperSlide className="mb-8 ">
@@ -173,10 +153,10 @@ const About = ({ getServiceList, getIntroDetails }) => {
 
             </Swiper>
 
-          </div>
+          </div> */}
 
           <div className="p-5">
-            <h1 className="text-black text-xl font-bold">Fun Fact</h1>
+            <h1 className="text-white text-xl font-bold">Fun Fact</h1>
           </div>
           <hr />
           <div>
@@ -185,7 +165,6 @@ const About = ({ getServiceList, getIntroDetails }) => {
 
 
         </div>
-      </div>
     </div>
 
 

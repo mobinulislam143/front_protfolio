@@ -23,8 +23,7 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
   }, []);
 
   return (
-    <div className="relative h-[600px]">
-      <div className="card bg-white shadow-lg rounded-md h-full overflow-y-auto overflow-x-hidden">
+    <div className="h-[600px] card bg-gray-800 shadow-lg rounded-md  overflow-y-auto overflow-x-hidden">
 
 
         <div className="p-5">
@@ -180,7 +179,6 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
           <p className="text-center text-gray-800">“Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do.”</p>
         </div>
 
-      </div>
     </div>
   );
 };

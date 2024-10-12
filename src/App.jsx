@@ -1,15 +1,15 @@
+// Import necessary libraries and components
 import { BrowserRouter as Router } from "react-router-dom";
-import MasterLayout from './component/MasterLayout/MasterLayout';
-import RandomShapes from './component/utility/RandomShapes'; // Import RandomShapes
+import MasterLayout from './component/MasterLayout/MasterLayout'; // Ensure correct import path
 
 function App() {
   return (
     <>
       <Router>
-        <div className="relative z-10"> 
+        {/* Wrapping MasterLayout in a relative container for layering */}
+        <div className="relative z-10">
           <MasterLayout />
         </div> 
-         <RandomShapes /> 
       </Router>
     </>
   );

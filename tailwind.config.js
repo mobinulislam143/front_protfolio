@@ -6,7 +6,12 @@ export default {
   ],
   darkMode: "light",
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        bg_primary: "#111827",
+        bg_secondary: "#BC7D11"
+      }
+    },
   },
   plugins: [require('daisyui')],
 }
