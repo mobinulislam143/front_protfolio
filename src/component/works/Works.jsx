@@ -82,9 +82,9 @@ const Works = ({getPortfolioList}) => {
   const totalPages = Math.ceil(portfolios.length / itemsPerPage);
 
   return (
-    <div className="h-[600px] card bg-gray-800 shadow-lg rounded-md  overflow-y-auto overflow-x-hidden">
+    <div className="h-[600px] card bg-bg_primary shadow-lg rounded-md  overflow-y-auto overflow-x-hidden">
         <div className="p-5">
-          <h1 className="text-black text-xl font-bold">My <span className="text-green-800">Project</span></h1>
+          <h1 className="text-text_color_light text-xl font-bold">My <span className="text-bg_secondary">Project</span></h1>
         </div>
         <hr />
 
@@ -93,20 +93,21 @@ const Works = ({getPortfolioList}) => {
 
           {!getPortfolioList || getPortfolioList.length === 0?(<p>Sorry, You have no work project</p>): (
             getPortfolioList.map((portfolio,index) => (
-              <Link onClick={() => handleReadMore(portfolio)} key={index} className="bg-white shadow-lg rounded-md overflow-hidden">
+              <Link onClick={() => handleReadMore(portfolio)} key={index} className="bg-[#151e30] shadow-lg rounded-md overflow-hidden">
               <img src={portfolio.img} alt={portfolio.title} className="w-full h-56 object-cover transform hover:scale-105 transition duration-300" />
               <div className="p-4">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{portfolio.title}</h3>
-                <p className="text-sm text-gray-600 mb-4">{portfolio.desc}</p>
+                <h3 className="text-xl font-bold text-text_color_light mb-2">{portfolio.title}</h3>
+                <p className="text-sm text-text_color_dark mb-4">{portfolio.desc}</p>
+
                 <div className="flex items-center justify-between">
-                  <p className="text-sm font-semibold text-gray-700">{portfolio.technology}</p>
+                  <p className="text-sm font-semibold text-text_color_dark">{portfolio.technology}</p>
                   <div className="space-x-2">
                     {portfolio.githublink && (
                       <a
                         href={portfolio.githublink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-500 hover:text-blue-700"
+                        className="text-bg_secondary hover:text-blue-700"
                       >
                         GitHub
                       </a>
@@ -116,7 +117,7 @@ const Works = ({getPortfolioList}) => {
                         href={portfolio.livelink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-green-500 hover:text-green-700"
+                        className="text-bg_secondary hover:text-green-700"
                       >
                         Live
                       </a>
