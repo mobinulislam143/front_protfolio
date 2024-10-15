@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { GiTireIronCross } from "react-icons/gi";
 import PhotoGallery from "./PhotoGallery";
 
-const Blogs = ({ getBlogsList }) => {
+const Blogs = ({ getBlogsList , getGallery}) => {
+  console.log(getGallery)
 
   // console.log("my blog is", getBlogsList)
   const [selectedBlog, setSelectedBlog] = useState(null);
@@ -115,8 +116,7 @@ const Blogs = ({ getBlogsList }) => {
 
 
         <div className="p-1">
-          <p>dlkfjsdlk</p>
-          <PhotoGallery/>
+          <PhotoGallery getGallery={getGallery}/>
         </div>
     </div>
   );

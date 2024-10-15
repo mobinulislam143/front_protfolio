@@ -116,9 +116,10 @@ const ApiStore = create((set) => ({
     getGallery: [],
     getGalleryRequest: async () => {
         try {
-            const res = await axiosPublic.get(`/api/getgalleries`);
+            const res = await axios.get(`${backendUrl}/api/getgalleries`);
             if (res.data.status === "success") {
                 set({ getGallery: res.data["data"] });
+                console.log(`my gallery data: `, res.data['data'])
 
             } else {
                 console.error("Failed to fetch intro data");

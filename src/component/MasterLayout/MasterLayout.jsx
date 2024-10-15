@@ -17,13 +17,13 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
 import DownloadBtn from "../utility/DownloadBtn";
 import ApiStore from "../apirequest/ApiRequest";
-import MasterImgSkeleton from "../allskeleton/MasterImgSkeleton";
+import MasterImgSkeleton from "../allskeleton/ServiceSkeleton";
 import './master.css'
 import myCv from "../../assets/mobinul_islam_mahi_cv.pdf"
 
 
 const MasterLayout = () => {
-  const { getIntroDetails, getIntroRequest, getServiceList, getServiceRequest, getEducation, getEducationRequest, getExperience, getExperienceRequest, frontendSkills, getfrontendskillsRequest, backendSkills, getbackendskillsRequest, getPortfolioList, getPortfolioRequest, getBlogsList, getblogRequest } = ApiStore();
+  const { getIntroDetails, getIntroRequest, getServiceList, getServiceRequest, getEducation, getEducationRequest, getExperience, getExperienceRequest, frontendSkills, getfrontendskillsRequest, backendSkills, getbackendskillsRequest, getPortfolioList, getPortfolioRequest, getBlogsList, getblogRequest,getGallery, getGalleryRequest } = ApiStore();
 
   // console.log(' my blog is: ', getBlogsList)
   useEffect(() => {
@@ -36,6 +36,7 @@ const MasterLayout = () => {
       await getbackendskillsRequest()
       await getPortfolioRequest()
       await getblogRequest()
+      await getGalleryRequest()
     })();
   }, []);
 
@@ -147,7 +148,7 @@ const MasterLayout = () => {
           {selectedComponent === "about" && <About getServiceList={getServiceList} getIntroDetails={getIntroDetails} />}
           {selectedComponent === "resume" && <Resume getExperience={getExperience} getEducation={getEducation} frontendSkills={frontendSkills} backendSkills={backendSkills} />}
           {selectedComponent === "works" && <Works getPortfolioList={getPortfolioList} />}
-          {selectedComponent === "blogs" && <Blogs getBlogsList={getBlogsList} />}
+          {selectedComponent === "blogs" && <Blogs getBlogsList={getBlogsList} getGallery={getGallery} />}
           {selectedComponent === "contact" && <Contact />}
         </div>
       </div>

@@ -1,58 +1,64 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import './photogallery.css';
 
 function Gallery({ items, setIndex }) {
   return (
     <ul className="gallery-container">
-      {items.map((color, i) => (
+      {items.map((image, i) => (
         <motion.li
           className="gallery-item"
-          key={color}
+          key={image.img1 + i}
           onClick={() => setIndex(i)}
-          style={{ backgroundColor: color }}
-          layoutId={color}
-        />
+          layoutId={image.img1 + i}
+        >
+          <img src={image.img1} alt={`Gallery item ${i}`} className="gallery-image" />
+        </motion.li>
       ))}
     </ul>
   );
 }
 
-function SingleImage({ color, onClick, prev, next }) {
+function SingleImage({ image, onClick, prev, next }) {
   return (
     <div className="single-image-container" onClick={onClick}>
-      <motion.div
-        layoutId={color}
-        className="single-image"
-        style={{ backgroundColor: color }}
-      />
+      <motion.div layoutId={image.img1} className="single-image">
+        <img src={image.img1} alt="Single view" className="single-view-image" />
+      </motion.div>
       <div className="image-navigation">
-        <button onClick={prev} className="nav-button">Previous</button>
-        <button onClick={next} className="nav-button">Next</button>
+        <button onClick={(e) => { e.stopPropagation(); prev(); }} className="nav-button">
+          Previous
+        </button>
+        <button onClick={(e) => { e.stopPropagation(); next(); }} className="nav-button">
+          Next
+        </button>
       </div>
     </div>
   );
 }
 
-export default function PhotoGallery() {
+export default function PhotoGallery({ getGallery }) {
   const [index, setIndex] = useState(false);
 
-  const numColors = 4 * 4;
-  const makeColor = (hue) => `hsl(${hue}, 100%, 50%)`;
-  const colors = Array.from(Array(numColors)).map((_, i) =>
-    makeColor(Math.round((360 / numColors) * i))
-  );
+  // Extract the images from the gallery data
+  const images = getGallery.map((item) => ({
+    img1: item.img1,
+    img2: item.img2,
+    img3: item.img3,
+    img4: item.img4,
+  }));
 
   const nextIndex = () => {
-    setIndex((prev) => (prev + 1) % colors.length);
+    setIndex((prev) => (prev + 1) % images.length);
   };
 
   const prevIndex = () => {
-    setIndex((prev) => (prev - 1 + colors.length) % colors.length);
+    setIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
   return (
     <div>
-      <Gallery items={colors} setIndex={setIndex} />
+      <Gallery items={images} setIndex={setIndex} />
       <AnimatePresence>
         {index !== false && (
           <motion.div
@@ -64,11 +70,10 @@ export default function PhotoGallery() {
             onClick={() => setIndex(false)}
           />
         )}
-
         {index !== false && (
           <SingleImage
             key="image"
-            color={colors[index]}
+            image={images[index]}
             onClick={() => setIndex(false)}
             next={nextIndex}
             prev={prevIndex}
