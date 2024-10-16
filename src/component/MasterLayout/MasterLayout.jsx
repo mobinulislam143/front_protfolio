@@ -100,13 +100,13 @@ const MasterLayout = () => {
                   <h1 className="text-lg font-semibold pb-4 text-bg_secondary">
                     <TypeAnimation
                       sequence={[
-                        'Mern Stack developer',
+                        'Mern Stack developer👨‍💼',
                         1000,
                         'Frontend Developer',
                         1000,
                         'Backend Developer',
                         1000,
-                        'Programmer',
+                        'Programmer👨‍💻',
                         1000,
                       ]}
                       wrapper="span"

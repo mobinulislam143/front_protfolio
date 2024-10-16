@@ -1,84 +1,52 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import './photogallery.css';
-
-function Gallery({ items, setIndex }) {
-  return (
-    <ul className="gallery-container">
-      {items.map((image, i) => (
-        <motion.li
-          className="gallery-item"
-          key={image.img1 + i}
-          onClick={() => setIndex(i)}
-          layoutId={image.img1 + i}
-        >
-          <img src={image.img1} alt={`Gallery item ${i}`} className="gallery-image" />
-        </motion.li>
-      ))}
-    </ul>
-  );
-}
-
-function SingleImage({ image, onClick, prev, next }) {
-  return (
-    <div className="single-image-container" onClick={onClick}>
-      <motion.div layoutId={image.img1} className="single-image">
-        <img src={image.img1} alt="Single view" className="single-view-image" />
-      </motion.div>
-      <div className="image-navigation">
-        <button onClick={(e) => { e.stopPropagation(); prev(); }} className="nav-button">
-          Previous
-        </button>
-        <button onClick={(e) => { e.stopPropagation(); next(); }} className="nav-button">
-          Next
-        </button>
-      </div>
-    </div>
-  );
-}
 
 export default function PhotoGallery({ getGallery }) {
-  const [index, setIndex] = useState(false);
-
-  // Extract the images from the gallery data
-  const images = getGallery.map((item) => ({
-    img1: item.img1,
-    img2: item.img2,
-    img3: item.img3,
-    img4: item.img4,
-  }));
-
-  const nextIndex = () => {
-    setIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const prevIndex = () => {
-    setIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
-
   return (
-    <div>
-      <Gallery items={images} setIndex={setIndex} />
+    <div className="flex flex-col gap-1 pb-3">
       <AnimatePresence>
-        {index !== false && (
+        {getGallery.map((item, index) => (
           <motion.div
+            key={index}
+            className="bg-bg_primary p-4 rounded-lg shadow-md"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.6 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            key="overlay"
-            className="overlay"
-            onClick={() => setIndex(false)}
-          />
-        )}
-        {index !== false && (
-          <SingleImage
-            key="image"
-            image={images[index]}
-            onClick={() => setIndex(false)}
-            next={nextIndex}
-            prev={prevIndex}
-          />
-        )}
+            layout
+          >
+            <h2 className="text-lg font-semibold text-text_color_light mb-2">{item.title}</h2>
+            <div className="grid lg:grid-cols-4 grid-cols-2 gap-2 overflow-x-auto">
+              {item.img1 && (
+                <img
+                  src={item.img1}
+                  alt={`${item.title} Image 1`}
+                  className="h-auto rounded-md object-cover"
+                />
+              )}
+              {item.img2 && (
+                <img
+                  src={item.img2}
+                  alt={`${item.title} Image 2`}
+                  className="h-auto rounded-md object-cover"
+                />
+              )}
+              {item.img3 && (
+                <img
+                  src={item.img3}
+                  alt={`${item.title} Image 3`}
+                  className="h-auto rounded-md object-cover"
+                />
+              )}
+              {item.img4 && (
+                <img
+                  src={item.img4}
+                  alt={`${item.title} Image 4`}
+                  className="h-auto rounded-md object-cover"
+                />
+              )}
+            </div>
+          </motion.div>
+        ))}
       </AnimatePresence>
     </div>
   );
