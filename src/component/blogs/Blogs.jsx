@@ -33,20 +33,20 @@ const Blogs = ({ getBlogsList , getGallery}) => {
   return (
     <div className="h-[600px] card bg-gray-800 shadow-lg rounded-md  overflow-y-auto overflow-x-hidden">
         <div className="p-5">
-          <h1 className="text-black text-xl font-bold">
-            My <span className="text-[#1b8c73]">Blogs</span>
+          <h1 className="text-text_color_light text-xl font-bold">
+            My <span className="text-bg_secondary">Blogs</span>
           </h1>
         </div>
         <hr />
 
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 lg:px-0 md:px-0 px-3">
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 lg:p-2 md:px-0 px-3">
           {!currentBlogs || currentBlogs.length === 0 ? (
             <p>Sorry, you don't have any blogs</p>
           ) : (
             currentBlogs.map((blog) => (
               <div
                 key={blog._id}
-                className="bg-white shadow-lg rounded-lg overflow-hidden"
+                className="bg-bg_primary shadow-lg rounded-lg overflow-hidden"
               >
                 <img
                   src={blog.blogimg}
@@ -54,13 +54,13 @@ const Blogs = ({ getBlogsList , getGallery}) => {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <p className="text-gray-700 text-lg mb-4">
+                  <p className="text-text_color_dark text-lg mb-4">
                     {blog.blogdesc.slice(0, 100)}... {/* Shortened for preview */}
                   </p>
                   <div className="flex items-center justify-between">
-                    <p className="text-gray-500">Written by {blog.blogwriter}</p>
+                    <p className="text-text_color_dark">Written by {blog.blogwriter}</p>
                     <button
-                      className="bg-[#1b8c73] text-white px-4 py-2 rounded-md hover:bg-[#146953] transition-colors"
+                      className="bg-[#f59e0b] text-white px-4 py-2 rounded-md hover:bg-[#f59e0b] transition-colors"
                       onClick={() => handleReadMore(blog)}
                     >
                       Read More
@@ -79,7 +79,7 @@ const Blogs = ({ getBlogsList , getGallery}) => {
               key={index + 1}
               className={`px-4 py-2 rounded ${
                 currentPage === index + 1
-                  ? "bg-[#1b8c73] text-white"
+                  ? "bg-bg_secondary text-white"
                   : "bg-gray-200 text-black hover:bg-gray-300"
               }`}
               onClick={() => handlePageChange(index + 1)}
@@ -92,9 +92,9 @@ const Blogs = ({ getBlogsList , getGallery}) => {
         {/* Modal */}
         {selectedBlog && (
           <div className="modal modal-open">
-            <div className="modal-box relative bg-white">
+            <div className="modal-box relative bg-bg_primary">
               <button
-                className="btn bg-gray-200 text-black hover:bg-gray-300 btn-sm btn-circle absolute right-2 top-2"
+                className="btn bg-text_color_light text-black hover:bg-text_color_dark btn-sm btn-circle absolute right-2 top-2"
                 onClick={handleCloseModal}
               >
                 <GiTireIronCross />
@@ -104,7 +104,7 @@ const Blogs = ({ getBlogsList , getGallery}) => {
                 alt="Blog Image"
                 className="w-full h-48 object-cover mb-4"
               />
-              <h2 className="text-xl font-bold text-[#1b8c73] mb-4">
+              <h2 className="text-xl font-bold text-bg_secondary mb-4">
                 Blog by {selectedBlog.blogwriter}
               </h2>
               <p className="text-gray-700 text-base">

@@ -138,7 +138,7 @@ const Works = ({getPortfolioList}) => {
               key={index + 1}
               className={`px-4 py-2 rounded ${
                 currentPage === index + 1
-                  ? "bg-[#1b8c73] text-white"
+                  ? "bg-[#f59e0b] text-white"
                   : "bg-gray-200 text-black hover:bg-gray-300"
               }`}
               onClick={() => handlePageChange(index + 1)}
@@ -150,8 +150,8 @@ const Works = ({getPortfolioList}) => {
 
         {/* Modal */}
         {selectedPortfolio && (
-          <div className="modal modal-open">
-            <div className="modal-box relative bg-white">
+          <div className="modal modal-open w-full">
+            <div className="modal-box relative bg-bg_primary">
               <button
                 className="btn bg-gray-200 text-black hover:bg-gray-300 btn-sm btn-circle absolute right-2 top-2"
                 onClick={handleCloseModal}
@@ -163,13 +163,13 @@ const Works = ({getPortfolioList}) => {
                 alt={selectedPortfolio.title}
                 className="w-full h-48 object-cover mb-4"
               />
-              <h2 className="text-xl font-bold text-[#1b8c73] mb-4">
+              <h2 className="text-xl font-bold text-bg_secondary mb-4">
                 {selectedPortfolio.title}
               </h2>
-              <p className="text-gray-700 text-base">
+              <p className="text-text_color_dark text-base">
                 {selectedPortfolio.desc}
               </p>
-              <p className="text-sm text-gray-600 mb-2">{selectedPortfolio.technology}</p>
+              <p className="text-sm text-text_color_dark mb-2">{selectedPortfolio.technology}</p>
               <div className="space-x-2">
                 <a
                   href={selectedPortfolio.githublink}
