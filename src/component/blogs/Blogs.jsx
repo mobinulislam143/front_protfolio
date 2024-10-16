@@ -107,7 +107,7 @@ const Blogs = ({ getBlogsList , getGallery}) => {
               <h2 className="text-xl font-bold text-bg_secondary mb-4">
                 Blog by {selectedBlog.blogwriter}
               </h2>
-              <p className="text-gray-700 text-base">
+              <p className="text-text_color_dark text-base">
                 {selectedBlog.blogdesc}
               </p>
             </div>
