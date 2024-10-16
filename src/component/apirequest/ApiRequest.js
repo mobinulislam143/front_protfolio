@@ -4,7 +4,9 @@ import axios from "axios";
 
 const axiosPublic = useAxiosPublic();
 
-const backendUrl = `https://protfolio-backend-wbgd.onrender.com`
+// const backendUrl = `https://protfolio-backend-wbgd.onrender.com`
+const backendUrl = `https://protfolio-server-omega.vercel.app`
+
 const localUrl = `http://localhost:7000`
 
 

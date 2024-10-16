@@ -17,7 +17,6 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
 import DownloadBtn from "../utility/DownloadBtn";
 import ApiStore from "../apirequest/ApiRequest";
-import MasterImgSkeleton from "../allskeleton/ServiceSkeleton";
 import './master.css'
 import myCv from "../../assets/mobinul_islam_mahi_cv.pdf"
 
@@ -138,8 +137,16 @@ const MasterLayout = () => {
                 </a>
               </>
             ) : (
-              // Render a loading state or skeleton while data is being fetched
-              <MasterImgSkeleton />
+              <div>
+                 <div className="skeleton h-[350px] w-full bg-text_color_dark"></div>
+                 <div className='w-[300px] space-y-4 mt-8 mx-auto flex flex-col'>
+                 {Array.from({ length: 4 }).map((_, index) => (
+                    <div key={index} className="skeleton bg-text_color_dark h-5 w-full"></div>
+
+                  ))}
+                 
+                 </div>
+              </div>
             )}
           </div>
         </div>

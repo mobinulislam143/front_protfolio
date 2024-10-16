@@ -37,7 +37,15 @@ const About = ({ getServiceList, getIntroDetails }) => {
             <>
               {getIntroDetails[0]['desc']}
             </>
-          ) : (<p>not found description</p>)}</p>
+          ) : (
+
+            <div>
+            {Array.from({ length: 8 }).map((_, index) => (
+              <div key={index} className="skeleton bg-text_color_dark h-4 w-full mb-2"></div>
+            ))}
+          </div>
+
+          )}</p>
           <div className="flex text-text_color_light flex-wrap pt-5 text-[18px]">
             <p className="w-1/2">Age........20</p>
             <p className="w-1/2">Home Town ........ Eidgah, Cox'sBazar</p>
