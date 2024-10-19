@@ -62,7 +62,7 @@
       <div ref={scope}>
         <button
           onClick={onButtonClick}
-          className="relative rounded-full px-6 py-2 text-2xl text-bg_secondary transition-colors hover:bg-blue-100"
+          className="relative rounded-full px-6 py-2 text-2xl text-bg_secondary border-bg_secondary border-2 transition-colors hover:bg-bg_secondary hover:text-bg_primary"
         >
           <span className="sr-only">Download Resumes</span>
           <span className="h-8 overflow-hidden flex items-center" aria-hidden>

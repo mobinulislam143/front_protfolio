@@ -7,6 +7,7 @@ import { LuBrainCircuit } from "react-icons/lu";
 import { FaCheck } from "react-icons/fa";
 import { FaServer } from "react-icons/fa";
 import { TbLanguageHiragana } from "react-icons/tb";
+import { Reorder } from "framer-motion";
 
 
 const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) => {
@@ -201,31 +202,36 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
                 </div>
 
               ) : (
-                backendSkills && backendSkills.length > 0 ? (
-                  backendSkills.map((skill, index) => (
-
-
-                    <div key={index} className="pb-3" data-aos="fade-up">
-                      <div className="flex justify-between mb-1" >
-                        <span className="text-base font-medium text-text_color_light dark:text-white">
-                          {skill.skillName}
-                        </span>
-                        <span className="text-sm font-medium text-text_color_dark dark:text-white">
-                          {skill.percentage}%
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-800 rounded-full h-2.5 dark:bg-gray-700">
-                        <div
-                          className="bg-bg_secondary h-2.5 rounded-full"
-                          style={{ width: `${skill.percentage}%` }}
-                        ></div>
-                      </div>
-                    </div>
-
-                  ))
-                ) : (
-                  <p className="text-center col-span-2">No skills available.</p>
-                )
+                <Reorder.Group 
+      axis="y" 
+      values={backendSkills} 
+      onReorder={(newOrder) => console.log(newOrder)}
+    >
+      {backendSkills && backendSkills.length > 0 ? (
+        backendSkills.map((skill, index) => (
+          <Reorder.Item key={skill.skillName} value={skill} id={skill.skillName}>
+            <div className="pb-3" data-aos="fade-up">
+              <div className="flex justify-between mb-1 cursor-pointer">
+                <span className="text-base font-medium text-text_color_light dark:text-white">
+                  {skill.skillName}
+                </span>
+                <span className="text-sm font-medium text-text_color_dark dark:text-white">
+                  {skill.percentage}%
+                </span>
+              </div>
+              <div className="w-full bg-gray-800 rounded-full h-2.5 dark:bg-gray-700">
+                <div
+                  className="bg-bg_secondary h-2.5 rounded-full"
+                  style={{ width: `${skill.percentage}%` }} // Note the corrected template literal
+                ></div>
+              </div>
+            </div>
+          </Reorder.Item>
+        ))
+      ) : (
+        <p className="text-center col-span-2">No skills available.</p>
+      )}
+    </Reorder.Group>
               )}
 
 

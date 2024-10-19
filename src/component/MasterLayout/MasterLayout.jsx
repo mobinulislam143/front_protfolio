@@ -61,7 +61,7 @@ const MasterLayout = () => {
     <div className="container mx-auto">
 
       <div className="grid lg:grid-cols-12 gap-0 lg:mt-0 md:mt-0 mt-14 sm:grid-cols-1 justify-center items-center lg:h-screen h-auto">
-        <div className="bg-bg_primary rounded-md lg:w-[70px]   fixed sm:sticky block z-20 w-full top-0 left-0 mx-auto">          
+        <div className="bg-bg_primary rounded-md lg:w-[70px]   fixed sm:sticky block z-20 w-full top-0 left-0 lg:pb-5 mx-auto">          
           <div className="lg:flex lg:flex-col md:flex md:flex-row flex flex-row justify-center items-center lg:items-start">
           <div onClick={() => onSubmit("about")} className="py-6 text-center mx-auto border-b-2 transition-all cursor-pointer border-white hover:border-yellow-500 group">
             <RxAvatar className="text-2xl mx-auto text-white group-hover:text-yellow-500" />
@@ -89,9 +89,9 @@ const MasterLayout = () => {
         </div>
         </div>
 
-        <div className="card mastercard bg-bg_primary shadow-lg shadow-gray-800 lg:mt-0 mt-16 rounded-md z-[10] lg:h-[630px] lg:col-span-4 sm:h-auto">
+        <div className="card mastercard bg-bg_primary shadow-lg shadow-gray-800 lg:mt-0 mt-16 rounded-md z-[10] lg:h-[630px] lg:col-span-4 sm:h-auto flex flex-col justify-between">
           <div className="">
-            {/* Check if getIntroDetails has data before rendering */}
+         
             {getIntroDetails.length > 0 ? (
               <>
                 <img className="w-full" src={getIntroDetails[0]['img1']} alt="img" />
@@ -101,10 +101,7 @@ const MasterLayout = () => {
               <div>
                  <div className="skeleton h-[350px] w-full bg-text_color_dark"></div>
                  <div className='w-[300px] space-y-4 mt-8 mx-auto flex flex-col'>
-                 {/* {Array.from({ length: 4 }).map((_, index) => (
-                    <div key={index} className="skeleton bg-text_color_dark h-5 w-full"></div>
-
-                  ))} */}
+              
                  
                  </div>
               </div>
@@ -145,11 +142,12 @@ const MasterLayout = () => {
                   </span>
                 </div>
 
-                <a href={myCv} className='mx-auto flex items-center gap-4 justify-center text-white text-lg cursor-pointer py-4  border-t'>
-                  <DownloadBtn />
-                </a>
               
           </div>
+                      <h2 className="text-3xl cursor-pointer text-center">Welcome to my <br />Website</h2>
+                <a href={myCv} className='mx-auto flex items-center gap-4 justify-center text-white text-lg cursor-pointer py-4 '>
+                  <DownloadBtn />
+                </a>
         </div>
 
         <div className={`transition-all duration-500 ${isExiting ? "opacity-0 transform -translate-x-full" : isEntering ? "opacity-100 transform translate-x-0" : ""} lg:col-span-7`}>
