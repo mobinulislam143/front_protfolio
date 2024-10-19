@@ -95,8 +95,21 @@ const MasterLayout = () => {
             {getIntroDetails.length > 0 ? (
               <>
                 <img className="w-full" src={getIntroDetails[0]['img1']} alt="img" />
+                  <h1 className="text-3xl text-center font-semibold py-4">{getIntroDetails[0]['name']}</h1>
+                  </>
+            ) : (
+              <div>
+                 <div className="skeleton h-[350px] w-full bg-text_color_dark"></div>
+                 <div className='w-[300px] space-y-4 mt-8 mx-auto flex flex-col'>
+                 {/* {Array.from({ length: 4 }).map((_, index) => (
+                    <div key={index} className="skeleton bg-text_color_dark h-5 w-full"></div>
+
+                  ))} */}
+                 
+                 </div>
+              </div>
+            )}
                 <div className="text-center text-white pb-6">
-                  <h1 className="text-3xl font-semibold py-4">{getIntroDetails[0]['name']}</h1>
                   <h1 className="text-lg font-semibold pb-4 text-bg_secondary">
                     <TypeAnimation
                       sequence={[
@@ -117,17 +130,17 @@ const MasterLayout = () => {
                   </h1>
 
                   <span className="flex gap-3 items-center text-center justify-center">
-                    <a target="_blank" rel="noreferrer" href="https://www.linkedin.com" className="cursor-pointer">
-                      <FaLinkedin className="text-lg text-white hover:text-gray-800" />
+                    <a target="_blank" rel="noreferrer" href="https://www.linkedin.com" className="cursor-pointer" data-aos="fade-right">
+                      <FaLinkedin className="text-lg text-white hover:text-text_color_dark" />
                     </a>
-                    <a target="_blank" rel="noreferrer" href="https://www.github.com/mobinulislam143" className="cursor-pointer">
-                      <FaGithub className="text-lg text-white hover:text-gray-800" />
+                    <a target="_blank" data-aos="fade-up" rel="noreferrer" href="https://www.github.com/mobinulislam143" className="cursor-pointer">
+                      <FaGithub className="text-lg text-white hover:text-text_color_dark" />
                     </a>
-                    <a target="_blank" rel="noreferrer" href="https://www.hackerrank.com/profile/mobinulislammahi" className="cursor-pointer">
-                      <FaHackerrank className="text-lg text-white hover:text-gray-800" />
+                    <a target="_blank" data-aos="fade-down" rel="noreferrer" href="https://www.hackerrank.com/profile/mobinulislammahi" className="cursor-pointer">
+                      <FaHackerrank className="text-lg text-white hover:text-text_color_dark" />
                     </a>
-                    <a target="_blank" rel="noreferrer" href="https://www.twitter.com" className="cursor-pointer">
-                      <FaSquareXTwitter className="text-lg text-white hover:text-gray-800" />
+                    <a target="_blank" data-aos="fade-left" rel="noreferrer" href="https://www.twitter.com" className="cursor-pointer">
+                      <FaSquareXTwitter className="text-lg text-white hover:text-text_color_dark" />
                     </a>
                   </span>
                 </div>
@@ -135,19 +148,7 @@ const MasterLayout = () => {
                 <a href={myCv} className='mx-auto flex items-center gap-4 justify-center text-white text-lg cursor-pointer py-4  border-t'>
                   <DownloadBtn />
                 </a>
-              </>
-            ) : (
-              <div>
-                 <div className="skeleton h-[350px] w-full bg-text_color_dark"></div>
-                 <div className='w-[300px] space-y-4 mt-8 mx-auto flex flex-col'>
-                 {Array.from({ length: 4 }).map((_, index) => (
-                    <div key={index} className="skeleton bg-text_color_dark h-5 w-full"></div>
-
-                  ))}
-                 
-                 </div>
-              </div>
-            )}
+              
           </div>
         </div>
 

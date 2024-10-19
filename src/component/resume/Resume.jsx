@@ -55,7 +55,7 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
 
           {!getEducation || getEducation.length === 0 ? (<p>Sorry, I can't find any education level</p>) : (
             getEducation.map((item, index) => (
-              <div key={index} className="col border-b py-4">
+              <div key={index} data-aos="fade-right" className="col border-b py-4">
                 <div className="inline-block px-2 text-sm mt-2 bg-transparent border border-bg_secondary rounded-none text-bg_secondary">{item.passingyear}</div>
 
                 <h2 className="text-text_color_light py-3 text-lg font-semibold">{item.institute}</h2>
@@ -82,7 +82,7 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
 
           {!getExperience || getExperience.length === 0 ? (<p>Sorry, I can't find any experience level</p>) : (
             getExperience.map((item, index) => (
-              <div key={index} className="col  py-4">
+              <div key={index} className="col  py-4" data-aos="fade-left">
                 <div className="inline-block px-2 text-sm mt-2 bg-transparent border border-bg_secondary rounded-none text-bg_secondary">{item.duration}</div>
 
                 <h2 className="text-text_color_light py-3 text-lg font-semibold">{item.company}</h2>
@@ -121,8 +121,8 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
                 <div className="grid grid-cols-2 gap-4"> {/* Use grid layout for two columns */}
                   {Array.from({ length: 4 }).map((_, index) => (
                     <div key={index} className="text-center"> {/* Remove margins */}
-                      <div className="skeleton h-16 w-16 shrink-0 rounded-full"></div>
-                      <p className="text-xs text-black">Loading...</p>
+                      <div className="skeleton h-16 w-16 shrink-0 rounded-full bg-text_color_dark"></div>
+                      <p className="text-xs text-text_color_dark">Loading...</p>
                     </div>
                   ))}
                 </div>
@@ -205,8 +205,8 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
                   backendSkills.map((skill, index) => (
 
 
-                    <div key={index} className="pb-3">
-                      <div className="flex justify-between mb-1">
+                    <div key={index} className="pb-3" data-aos="fade-up">
+                      <div className="flex justify-between mb-1" >
                         <span className="text-base font-medium text-text_color_light dark:text-white">
                           {skill.skillName}
                         </span>
@@ -262,8 +262,8 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
       </div>
       <hr />
 
-      <div className=" py-4">
-        <p className="text-center text-text_color_dark">“Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do.”</p>
+      <div className=" py-4" data-aos="fade-up">
+        <p className="text-center text-text_color_dark" >“Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do.”</p>
       </div>
 
     </div>
