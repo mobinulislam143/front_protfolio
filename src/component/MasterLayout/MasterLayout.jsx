@@ -144,7 +144,7 @@ const MasterLayout = () => {
 
               
           </div>
-                      <h2 className="text-3xl cursor-pointer text-center">Welcome to my <br />Website</h2>
+                      <h2 className="text-3xl cursor-pointer text-center hover:scale-150 hover:text-bold transition-all hover:text-text_color_light ">Welcome to my <br />Website</h2>
                 <a href={myCv} className='mx-auto flex items-center gap-4 justify-center text-white text-lg cursor-pointer py-4 '>
                   <DownloadBtn />
                 </a>

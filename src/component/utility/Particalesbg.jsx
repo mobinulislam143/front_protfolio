@@ -55,7 +55,7 @@ const Particalesbg = () => {
             },
             particles: {
               color: {
-                value: "#ff0000",
+                value: ["#fca003", "#22d3ee", "#fca003"]
               },
               links: {
                 color: "#ffffff",
