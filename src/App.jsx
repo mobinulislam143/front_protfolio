@@ -4,10 +4,11 @@ import MasterLayout from './component/MasterLayout/MasterLayout';
 import Particalesbg from './component/utility/Particalesbg';
 import FullScreenLoader from './component/utility/FullScreenLoader';
 import AnimatedCursor from "react-animated-cursor"
+import mernsound from './assets/mernaudio.mp3'
 
 // Define the fetchData function (mock example)
 const fetchData = async () => {
-  // Simulate an API call with a promise that resolves after a short delay
+
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({ data: { /* your fetched data here */ } });

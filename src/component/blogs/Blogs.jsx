@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { GiTireIronCross } from "react-icons/gi";
 import PhotoGallery from "./PhotoGallery";
+import useSound from 'use-sound';
+import clicksond from '../../assets/clicksound.mp3'
+
 
 const Blogs = ({ getBlogsList , getGallery}) => {
   console.log(getGallery)
+
+  const [play] = useSound(clicksond)
+
 
   // console.log("my blog is", getBlogsList)
   const [selectedBlog, setSelectedBlog] = useState(null);
@@ -19,14 +25,19 @@ const Blogs = ({ getBlogsList , getGallery}) => {
   const currentBlogs = getBlogsList.slice(indexOfFirstBlog, indexOfLastBlog);
 
   const handleReadMore = (blog) => {
+    play()
     setSelectedBlog(blog);
+
   };
 
   const handleCloseModal = () => {
+    play()
     setSelectedBlog(null);
+
   };
 
   const handlePageChange = (pageNumber) => {
+    play()
     setCurrentPage(pageNumber);
   };
 

@@ -1,14 +1,19 @@
   import { stagger, useAnimate, animate } from "framer-motion";
   import { IoCodeDownloadSharp } from "react-icons/io5";
+  import clicksond from '../../assets/clicksound.mp3'
+import useSound from 'use-sound';
 
   const randomNumberBetween = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
 
   function DownloadBtn() {
+    const [play] = useSound(clicksond)
+
     const [scope, animate] = useAnimate();
 
     const onButtonClick = () => {
+      play()
       const sparkles = Array.from({ length: 20 });
       const sparklesAnimation = sparkles.map((_, index) => [
         `.sparkle-${index}`,

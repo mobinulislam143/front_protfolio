@@ -14,7 +14,7 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
 
   const languages = [
     { name: 'Bangla', level: 10 },
-    { name: 'English', level: 6 },
+    { name: 'English', level: 7 },
     { name: 'Hindi/Urdu', level: 8 },
   ];
 

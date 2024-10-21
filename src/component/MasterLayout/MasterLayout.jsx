@@ -18,8 +18,10 @@ import { FaGithub } from "react-icons/fa6";
 import DownloadBtn from "../utility/DownloadBtn";
 import ApiStore from "../apirequest/ApiRequest";
 import './master.css'
+import clicksond from '../../assets/clicksound.mp3'
+import useSound from 'use-sound';
 import myCv from "../../assets/mobinul_islam_mahi_cv.pdf"
-
+import { AiFillInstagram } from "react-icons/ai";
 
 const MasterLayout = () => {
   const { getIntroDetails, getIntroRequest, getServiceList, getServiceRequest, getEducation, getEducationRequest, getExperience, getExperienceRequest, frontendSkills, getfrontendskillsRequest, backendSkills, getbackendskillsRequest, getPortfolioList, getPortfolioRequest, getBlogsList, getblogRequest,getGallery, getGalleryRequest } = ApiStore();
@@ -39,6 +41,8 @@ const MasterLayout = () => {
     })();
   }, []);
 
+  const [play] = useSound(clicksond)
+
   const [selectedComponent, setSelectedComponent] = useState("about");
   const [isExiting, setIsExiting] = useState(false);
   const [isEntering, setIsEntering] = useState(false);
@@ -46,6 +50,7 @@ const MasterLayout = () => {
 
   const onSubmit = (componentName) => {
     if (componentName !== selectedComponent) {
+      play()
       setIsExiting(true);
       setIsEntering(false);
       setTimeout(() => {
@@ -128,16 +133,19 @@ const MasterLayout = () => {
 
                   <span className="flex gap-3 items-center text-center justify-center">
                     <a target="_blank" rel="noreferrer" href="https://www.linkedin.com" className="cursor-pointer" data-aos="fade-right">
-                      <FaLinkedin className="text-lg text-white hover:text-text_color_dark" />
+                      <FaLinkedin className="text-xl text-white hover:text-text_color_dark" />
                     </a>
                     <a target="_blank" data-aos="fade-up" rel="noreferrer" href="https://www.github.com/mobinulislam143" className="cursor-pointer">
-                      <FaGithub className="text-lg text-white hover:text-text_color_dark" />
+                      <FaGithub className="text-xl text-white hover:text-text_color_dark" />
                     </a>
                     <a target="_blank" data-aos="fade-down" rel="noreferrer" href="https://www.hackerrank.com/profile/mobinulislammahi" className="cursor-pointer">
-                      <FaHackerrank className="text-lg text-white hover:text-text_color_dark" />
+                      <FaHackerrank className="text-xl text-white hover:text-text_color_dark" />
                     </a>
                     <a target="_blank" data-aos="fade-left" rel="noreferrer" href="https://www.twitter.com" className="cursor-pointer">
-                      <FaSquareXTwitter className="text-lg text-white hover:text-text_color_dark" />
+                      <FaSquareXTwitter className="text-xl text-white hover:text-text_color_dark" />
+                    </a>
+                    <a target="_blank" data-aos="fade-left" rel="noreferrer" href="https://www.instagram.com/ma_ahii/" className="cursor-pointer">
+                      <AiFillInstagram  className="text-xl text-white hover:text-text_color_dark" />
                     </a>
                   </span>
                 </div>
@@ -145,7 +153,7 @@ const MasterLayout = () => {
               
           </div>
                       <h2 className="text-3xl cursor-pointer text-center hover:scale-150 hover:text-bold transition-all hover:text-text_color_light ">Welcome to my <br />Website</h2>
-                <a href={myCv} className='mx-auto flex items-center gap-4 justify-center text-white text-lg cursor-pointer py-4 '>
+                <a href={myCv}  className='mx-auto flex items-center gap-4 justify-center text-white text-lg cursor-pointer py-4 '>
                   <DownloadBtn />
                 </a>
         </div>

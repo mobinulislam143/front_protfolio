@@ -34,6 +34,7 @@
     "react-use-measure": "^2.1.1",
     "swiper": "^11.1.14",
     "tsparticles": "^3.5.0",
+    "use-sound": "^4.0.3",
     "zustand": "^5.0.0-rc.2"
   },
   "devDependencies": {

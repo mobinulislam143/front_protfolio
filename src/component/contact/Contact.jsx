@@ -5,40 +5,24 @@ import { IoArrowRedoCircle } from "react-icons/io5";
 import emailjs from '@emailjs/browser';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import clicksond from '../../assets/clicksound.mp3'
+import useSound from 'use-sound';
 
 
 
 
-// const AnyReactComponent = ({ text }) => (
-//   <div style={{
-//     color: 'white',
-//     background: 'red',
-//     padding: '10px 15px',
-//     display: 'inline-flex',
-//     textAlign: 'center',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     borderRadius: '100%',
-//     transform: 'translate(-50%, -50%)'
-//   }}>
-//     {text}
-//   </div>
-// );
 
 const Contact = () => {
-  // const defaultProps = {
-  //   center: {
-  //     lat: 10.99835602,
-  //     lng: 77.01502627
-  //   },
-  //   zoom: 11
-  // };
+  const [play] = useSound(clicksond)
+
 
   const [message, setMessage] = useState(false);
   const formRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    play()
+
 
     const name = formRef.current.from_name.value.trim();
     const email = formRef.current.from_email.value.trim();

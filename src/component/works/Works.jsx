@@ -1,70 +1,27 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { GiTireIronCross } from "react-icons/gi"; // Import your icon or use another method for the close button
+import { GiTireIronCross } from "react-icons/gi"; 
+import clicksond from '../../assets/clicksound.mp3'
+import useSound from 'use-sound';
 
 const Works = ({getPortfolioList}) => {
+  const [play] = useSound(clicksond)
+
   const [selectedPortfolio, setSelectedPortfolio] = useState(null); // State for the selected portfolio
   const [currentPage, setCurrentPage] = useState(1); // State for current page
   const itemsPerPage = 4; // Number of items to show per page
 
-  // Demo portfolio data (JSON-like object)
-  const portfolios = [
-    {
-      title: "Project One",
-      img: "https://mahi-lac.vercel.app/static/media/ponno.f49e8cc406ebe5fc60ff.png",
-      technology: "React, Node.js",
-      desc: "This is a demo project using React and Node.js.",
-      githublink: "https://github.com/example/project-one",
-      livelink: "https://example.com/project-one",
-    },
-    {
-      title: "Project Two",
-      img: "https://mahi-lac.vercel.app/static/media/ponno.f49e8cc406ebe5fc60ff.png",
-      technology: "Vue.js, Express",
-      desc: "This is a demo project using Vue.js and Express.",
-      githublink: "https://github.com/example/project-two",
-      livelink: "https://example.com/project-two",
-    },
-    {
-      title: "Project Three",
-      img: "https://mahi-lac.vercel.app/static/media/ponno.f49e8cc406ebe5fc60ff.png",
-      technology: "Angular, MongoDB",
-      desc: "This is a demo project using Angular and MongoDB.",
-      githublink: "https://github.com/example/project-three",
-      livelink: "https://example.com/project-three",
-    },
-    {
-      title: "Project Four",
-      img: "https://mahi-lac.vercel.app/static/media/ponno.f49e8cc406ebe5fc60ff.png",
-      technology: "Django, PostgreSQL",
-      desc: "This is a demo project using Django and PostgreSQL.",
-      githublink: "https://github.com/example/project-four",
-      livelink: "https://example.com/project-four",
-    },
-    {
-      title: "Project Five",
-      img: "https://mahi-lac.vercel.app/static/media/ponno.f49e8cc406ebe5fc60ff.png",
-      technology: "Flask, MySQL",
-      desc: "This is a demo project using Flask and MySQL.",
-      githublink: "https://github.com/example/project-five",
-      livelink: "https://example.com/project-five",
-    },
-    {
-      title: "Project Six",
-      img: "https://mahi-lac.vercel.app/static/media/ponno.f49e8cc406ebe5fc60ff.png",
-      technology: "Ruby on Rails, SQLite",
-      desc: "This is a demo project using Ruby on Rails and SQLite.",
-      githublink: "https://github.com/example/project-six",
-      livelink: "https://example.com/project-six",
-    },
-  ];
+
 
   const handleReadMore = (portfolio) => {
-    setSelectedPortfolio(portfolio); // Set the selected portfolio for the modal
+    play()
+    setSelectedPortfolio(portfolio);
   };
 
   const handleCloseModal = () => {
-    setSelectedPortfolio(null); // Close the modal by resetting the selected portfolio
+    play()
+
+    setSelectedPortfolio(null); 
   };
 
   const handlePageChange = (page) => {
@@ -76,10 +33,10 @@ const Works = ({getPortfolioList}) => {
   const indexOfFirstPortfolio = indexOfLastPortfolio - itemsPerPage;
 
   // Slice the portfolios array to get the current page's portfolios
-  const currentPortfolios = portfolios.slice(indexOfFirstPortfolio, indexOfLastPortfolio);
+  const currentPortfolios = getPortfolioList.slice(indexOfFirstPortfolio, indexOfLastPortfolio);
 
   // Calculate total pages
-  const totalPages = Math.ceil(portfolios.length / itemsPerPage);
+  const totalPages = Math.ceil(getPortfolioList.length / itemsPerPage);
 
   return (
     <div className="h-[600px] card bg-bg_primary shadow-lg rounded-md  overflow-y-auto overflow-x-hidden">
