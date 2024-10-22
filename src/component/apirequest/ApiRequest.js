@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import useAxiosPublic from "../utility/useAxiosPublic";
 import axios from "axios";
+import Cookie from 'js-cookie'
+
 
 const axiosPublic = useAxiosPublic();
 
@@ -34,14 +36,14 @@ const ApiStore = create((set) => ({
             const res = await axios.get(`${backendUrl}/api/getblogs`);
             if (res.data.status === "success") {
                 console.log(' my blog is: fuck you', res.data['data'])
-            set({ getBlogsList: res.data.data });
-          } else {
-            console.error("Failed to fetch blog data");
-          }
+                set({ getBlogsList: res.data.data });
+            } else {
+                console.error("Failed to fetch blog data");
+            }
         } catch (error) {
-          console.error("Error fetching blog data", error);
+            console.error("Error fetching blog data", error);
         }
-      },
+    },
     getBlogDetails: [],
     getblogDetailsRequest: async (id) => {
         try {
@@ -77,7 +79,7 @@ const ApiStore = create((set) => ({
             if (res.data.status === "success") {
                 console.log('My frontend skills in', res.data['data'][0].frontendskills);
                 set({ frontendSkills: res.data['data'][0].frontendskills });
-    
+
             } else {
                 console.error("Failed to fetch intro data");
             }
@@ -85,7 +87,7 @@ const ApiStore = create((set) => ({
             console.error("Error fetching intro data", error);
         }
     },
-    
+
     backendSkills: [],
     getbackendskillsRequest: async () => {
         try {
@@ -187,6 +189,106 @@ const ApiStore = create((set) => ({
         }
     },
 
+    // user area
+    LoginFormData: { email: "", name: "" },
+    LoginFormOnChange: (name, value) => {
+        set((state) => ({
+            LoginFormData: {
+                ...state.LoginFormData,
+                [name]: value,
+            },
+        }));
+    },
+
+
+    UserLoginRequest: async (postBody) => {
+        try {
+            set({ isFormSubmit: true });
+            const res = await axios.post(`${backendUrl}/api/login`, postBody);
+            // Check if response is valid
+            if (res.data && res.data.status === 'success') {
+                const token = res.data.token;
+                Cookie.set('token', token, { expires: 1 });
+                set({ isLoggedIn: true });
+            }
+            return res.data.status === 'success';
+        } catch (e) {
+            console.log(e.toString());
+            return false;
+        } finally {
+            set({ isFormSubmit: false });
+        }
+    },
+
+
+    isLoggedIn: false, // Initialize login state
+    Logout: () => {
+        Cookie.remove('token'); // Remove token on logout
+        set({ isLoggedIn: false }); // Update logged in state
+    },
+
+ 
+
+    UserList: null,
+    getUserListRequest: async () => {
+        try {
+            set({ isFormSubmit: true });
+            const res = await axios.get(`${backendUrl}/api/getAllUsers`, {
+                headers: {
+                    token: Cookie.get('token'),
+                },
+            });
+            if (res.data.status === 'success') {
+                set({ UserList: res.data.data }); // Assuming this is the intended behavior
+            }
+            return res.data.status;
+        } catch (e) {
+            console.log(e.toString());
+            return false;
+        } finally {
+            set({ isFormSubmit: false });
+        }
+    },
+
+
+    StarList: null,
+    isFormSubmit: false,
+    
+    // Function to get the list of stars
+    GetStarList: async () => {
+        try {
+            const res = await axios.get(`${backendUrl}/api/star`, {
+                headers: {
+                    token: Cookie.get('token'),
+                },
+            });
+            if (res.data.status === 'success') {
+                set({ StarList: res.data.data });
+            }
+        } catch (e) {
+            console.log(e.toString());
+        }
+    },
+
+    // Function to post a new star rating
+    PostStarRequest: async (postBody) => {
+        try {
+            set({ isFormSubmit: true });
+            const res = await axios.post(`${backendUrl}/api/addstar`, postBody, {
+                headers: {
+                    token: Cookie.get('token'),
+                },
+            });
+            if (res.data.status === 'success') {
+                set({ StarList: res.data.data }); // Update the StarList with the new rating
+            }
+        } catch (e) {
+            console.log(e.toString());
+            return false;
+        } finally {
+            set({ isFormSubmit: false });
+        }
+    },
 
 }));
 
