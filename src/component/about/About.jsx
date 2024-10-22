@@ -174,8 +174,8 @@ const About = ({ getServiceList, getIntroDetails }) => {
               🌍
             </div>
             <div>
-              <h2 className="font-bold text-lg">1. Earth’s Rotation</h2>
-              <p className="text-sm">Earth's rotation is gradually slowing down—by about 1.4 milliseconds per century.</p>
+              <h2 className="font-bold text-lg text-text_color_light">1. Earth’s Rotation</h2>
+              <p className="text-sm text-text_color_dark">Earth's rotation is gradually slowing down—by about 1.4 milliseconds per century.</p>
             </div>
           </div>
           <div className="p-4  rounded shadow flex flex-col  items-center">
@@ -183,8 +183,8 @@ const About = ({ getServiceList, getIntroDetails }) => {
               🐦
             </div>
             <div>
-              <h2 className="font-bold text-lg">2. Birds and Gravity</h2>
-              <p className="text-sm">Some birds can sleep while flying. Swifts can fly for months without landing.</p>
+              <h2 className="font-bold text-lg text-text_color_light">2. Birds and Gravity</h2>
+              <p className="text-sm text-text_color_dark">Some birds can sleep while flying. Swifts can fly for months without landing.</p>
             </div>
           </div>
           <div className="p-4  rounded shadow flex flex-col  items-center">
@@ -192,8 +192,8 @@ const About = ({ getServiceList, getIntroDetails }) => {
               🌕
             </div>
             <div>
-              <h2 className="font-bold text-lg">3. Moon’s Distance</h2>
-              <p className="text-sm">The Moon is slowly drifting away from Earth—by about 3.8 cm each year.</p>
+              <h2 className="font-bold text-lg text-text_color_light">3. Moon’s Distance</h2>
+              <p className="text-sm text-text_color_dark">The Moon is slowly drifting away from Earth—by about 3.8 cm each year.</p>
             </div>
           </div>
           <div className="p-4  rounded shadow flex flex-col  items-center">
@@ -201,8 +201,8 @@ const About = ({ getServiceList, getIntroDetails }) => {
               🍫
             </div>
             <div>
-              <h2 className="font-bold text-lg">4. Chocolate’s History</h2>
-              <p className="text-sm">Chocolate was once used as currency in ancient Mayan civilizations.</p>
+              <h2 className="font-bold text-lg text-text_color_light">4. Chocolate’s History</h2>
+              <p className="text-sm text-text_color_dark">Chocolate was once used as currency in ancient Mayan civilizations.</p>
             </div>
           </div>
         </div>
