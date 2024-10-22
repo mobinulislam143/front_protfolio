@@ -44,7 +44,7 @@ const StarRating = () => {
                 <button 
                     type="submit" 
                     disabled={isSubmitted || rating === 0} // Disable if submitted or no rating selected
-                    className="submit-btn hover:text-text_color_light"
+                    className="submit-btn text-text_color_dark hover:text-text_color_light cursor-pointer"
                 >
                     {isSubmitted ? 'Rating Submitted' : 'Submit Rating'}
                 </button>

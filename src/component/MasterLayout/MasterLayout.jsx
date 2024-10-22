@@ -138,7 +138,7 @@ const MasterLayout = () => {
               {getIntroDetails.length > 0 ? (
                 <>
                   <img className="w-full" src={getIntroDetails[0]['img1']} alt="img" />
-                  <h1 className="text-3xl text-center font-semibold py-4">{getIntroDetails[0]['name']}</h1>
+                  <h1 className="text-3xl text-text_color_light text-center font-semibold py-4">{getIntroDetails[0]['name']}</h1>
                 </>
               ) : (
                 <div>
