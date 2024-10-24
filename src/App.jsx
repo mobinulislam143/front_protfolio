@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import MasterLayout from './component/MasterLayout/MasterLayout';
 import Particalesbg from './component/utility/Particalesbg';
 import FullScreenLoader from './component/utility/FullScreenLoader';
-// import AnimatedCursor from "react-animated-cursor"
+import AnimatedCursor from "react-animated-cursor"
 import mernsound from './assets/mernaudio.mp3'
 
 // Define the fetchData function (mock example)
@@ -62,14 +62,14 @@ function App() {
             <Particalesbg />
             <div className="relative z-10">
               <MasterLayout data={data} />
-              {/* <AnimatedCursor
+              <AnimatedCursor
           innerSize={15}
           outerSize={15}
           color="245, 158 ,11"
           outerAlpha={0.4}
           innerScale={0.7}
           outerScale={5}
-        /> */}
+        />
             </div>
           </>
         )}
