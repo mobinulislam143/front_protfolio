@@ -21,15 +21,14 @@ const StarRating = () => {
         // Submit the rating
         const success = await PostStarRequest(postBody);
         if (success) {
-            setIsSubmitted(true); 
             toast.success("Rate submitted")
+            setIsSubmitted(true); 
 
         }
     };
 
     return (
         <div className="star-rating">
-            <h2>Rate Us</h2>
             <StarRatings
                 rating={rating} // Pass current rating
                 starRatedColor="gold" // Color of filled stars
