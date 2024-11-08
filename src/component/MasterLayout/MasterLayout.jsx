@@ -5,14 +5,13 @@ import { FaPaintbrush } from "react-icons/fa6";
 import { FaComments } from "react-icons/fa6";
 import { BiSolidContact } from "react-icons/bi";
 import About from "../about/About";
-import { GiTireIronCross } from "react-icons/gi";
+import { SiEnvato } from "react-icons/si";
 import Blogs from "../blogs/Blogs";
 import Resume from "../resume/Resume";
 import Works from "../works/Works";
 import Contact from "../contact/Contact";
 import { TypeAnimation } from 'react-type-animation';
 import { FaLinkedin } from "react-icons/fa";
-import { NavLink } from "react-router-dom"
 import { FaHackerrank } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
@@ -24,7 +23,6 @@ import useSound from 'use-sound';
 import myCv from "../../assets/mobinul_islam_mahi_cv.pdf"
 import { AiFillInstagram } from "react-icons/ai";
 import Cookie from 'js-cookie';
-import StarRating from "./StarRating";
 
 const MasterLayout = () => {
   const { getIntroDetails, getIntroRequest, getServiceList, getServiceRequest, getEducation, getEducationRequest, getExperience, getExperienceRequest, frontendSkills, getfrontendskillsRequest, backendSkills, getbackendskillsRequest, getPortfolioList, getPortfolioRequest, getBlogsList, getblogRequest, getGallery, getGalleryRequest, LoginFormData, LoginFormOnChange, UserLoginRequest, isLoggedIn, Logout } = ApiStore();
@@ -75,29 +73,29 @@ const MasterLayout = () => {
       setIsLoggedIn(true)
     }
   }, [])
-  const handleLoginSubmit = async (e) => {
-    e.preventDefault();
+  // const handleLoginSubmit = async (e) => {
+  //   e.preventDefault();
 
-    const postBody = { email, name }; 
-    console.log(email, name)
-    const success = await UserLoginRequest(postBody);
+  //   const postBody = { email, name }; 
+  //   console.log(email, name)
+  //   const success = await UserLoginRequest(postBody);
 
-    if (success) {
-      // Optionally reset the form or handle post-login actions
-      setEmail('');
-      setName('');
-      if (document.getElementById('my_modal_3').open) {
-        document.getElementById('my_modal_3').close();
-      }
-      setIsLoggedIn(true);
-    }
-  };
+  //   if (success) {
+  //     // Optionally reset the form or handle post-login actions
+  //     setEmail('');
+  //     setName('');
+  //     if (document.getElementById('my_modal_3').open) {
+  //       document.getElementById('my_modal_3').close();
+  //     }
+  //     setIsLoggedIn(true);
+  //   }
+  // };
 
-  const handleLogout = () => {
-    Cookie.remove('token');
-    setIsLoggedIn(false);
-    Logout(); 
-  };
+  // const handleLogout = () => {
+  //   Cookie.remove('token');
+  //   setIsLoggedIn(false);
+  //   Logout(); 
+  // };
 
   return (
     <>
@@ -170,8 +168,11 @@ const MasterLayout = () => {
                 </h1>
 
                 <span className="flex gap-3 items-center text-center justify-center">
-                  <a target="_blank" rel="noreferrer" href="https://www.linkedin.com" className="cursor-pointer" data-aos="fade-right">
+                  <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/mobinulislam143/" className="cursor-pointer" data-aos="fade-right">
                     <FaLinkedin className="text-xl text-white hover:text-text_color_dark" />
+                  </a>
+                  <a target="_blank" rel="noreferrer" href="https://themeforest.net/user/mobinulislammahi" className="cursor-pointer" data-aos="fade-right">
+                    <SiEnvato  className="text-xl text-white hover:text-text_color_dark" />
                   </a>
                   <a target="_blank" data-aos="fade-up" rel="noreferrer" href="https://www.github.com/mobinulislam143" className="cursor-pointer">
                     <FaGithub className="text-xl text-white hover:text-text_color_dark" />
@@ -190,8 +191,8 @@ const MasterLayout = () => {
 
 
             </div>
-            {/* <h2 className="text-3xl cursor-pointer text-center hover:scale-150 hover:text-bold transition-all hover:text-text_color_light ">Welcome to my <br />Website</h2> */}
-            <div className="text-center w-full">
+   
+            {/* <div className="text-center w-full">
              {
               isLoggedIn?(
                 <button
@@ -210,7 +211,6 @@ const MasterLayout = () => {
               )
              }
 
-              {/* Login Modal */}
               <dialog id="my_modal_3" className="modal">
                 <div className="modal-box relative">
                   <h2 className="text-text_color_light text-3xl text-bold">Login</h2><br />
@@ -256,7 +256,7 @@ const MasterLayout = () => {
               </dialog>
 
               <StarRating/>
-            </div>
+            </div> */}
             <a href={myCv} className='mx-auto flex items-center gap-4 justify-center text-white text-lg cursor-pointer py-4 '>
               <DownloadBtn />
             </a>
