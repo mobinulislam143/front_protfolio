@@ -83,7 +83,7 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
 
           {!getExperience || getExperience.length === 0 ? (<p>Sorry, I can't find any experience level</p>) : (
             getExperience.map((item, index) => (
-              <div key={index} className="col  py-4" data-aos="fade-left">
+              <div key={index} className="col  py-4 px-2" data-aos="fade-left">
                 <div className="inline-block px-2 text-sm mt-2 bg-transparent border border-bg_secondary rounded-none text-bg_secondary">{item.duration}</div>
 
                 <h2 className="text-text_color_light py-3 text-lg font-semibold">{item.company}</h2>
@@ -154,7 +154,7 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
               <div className="border-2 w-16 h-16 border-bg_secondary p-3 rounded-full">
                 <LuBrainCircuit className="text-4xl text-bg_secondary" />
               </div> Knowledge</p><hr />
-            <div className="col border-b py-4">
+            <div className="col border-b py-4 px-2">
               <div className="flex flex-col space-y-6">
                 <p className="flex items-center gap-2 text-text_color_dark">
                   <FaCheck className="text-bg_secondary" />Responsive and mobile-ready

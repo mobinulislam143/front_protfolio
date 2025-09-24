@@ -9,7 +9,7 @@ const axiosPublic = useAxiosPublic();
 // const backendUrl = `https://protfolio-backend-wbgd.onrender.com`
 const backendUrl = `https://protfolio-server-omega.vercel.app`
 
-const localUrl = `http://localhost:7000`
+// const localUrl = `http://localhost:7000`
 
 
 const ApiStore = create((set) => ({
@@ -35,7 +35,7 @@ const ApiStore = create((set) => ({
         try {
             const res = await axios.get(`${backendUrl}/api/getblogs`);
             if (res.data.status === "success") {
-                console.log(' my blog is: fuck you', res.data['data'])
+                // console.log(' my blog is: fuck you', res.data['data'])
                 set({ getBlogsList: res.data.data });
             } else {
                 console.error("Failed to fetch blog data");

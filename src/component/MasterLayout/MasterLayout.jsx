@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { RxAvatar } from "react-icons/rx";
 import { IoDocumentText } from "react-icons/io5";
 import { FaPaintbrush } from "react-icons/fa6";
@@ -25,7 +25,7 @@ import { AiFillInstagram } from "react-icons/ai";
 import Cookie from 'js-cookie';
 
 const MasterLayout = () => {
-  const { getIntroDetails, getIntroRequest, getServiceList, getServiceRequest, getEducation, getEducationRequest, getExperience, getExperienceRequest, frontendSkills, getfrontendskillsRequest, backendSkills, getbackendskillsRequest, getPortfolioList, getPortfolioRequest, getBlogsList, getblogRequest, getGallery, getGalleryRequest, LoginFormData, LoginFormOnChange, UserLoginRequest, isLoggedIn, Logout } = ApiStore();
+  const { getIntroDetails, getIntroRequest, getServiceList, getServiceRequest, getEducation, getEducationRequest, getExperience, getExperienceRequest, frontendSkills, getfrontendskillsRequest, backendSkills, getbackendskillsRequest, getPortfolioList, getPortfolioRequest, getBlogsList, getblogRequest, getGallery, getGalleryRequest, isLoggedIn,  } = ApiStore();
 
   // console.log(' my blog is: ', getBlogsList)
   useEffect(() => {
@@ -47,7 +47,6 @@ const MasterLayout = () => {
   const [selectedComponent, setSelectedComponent] = useState("about");
   const [isExiting, setIsExiting] = useState(false);
   const [isEntering, setIsEntering] = useState(false);
-  const [selectedPortfolio, setSelectedPortfolio] = useState(null);
   const onSubmit = (componentName) => {
     if (componentName !== selectedComponent) {
       play()
@@ -62,9 +61,8 @@ const MasterLayout = () => {
   };
 
 
-  const [email, setEmail] = useState(LoginFormData.email);
-  const [name, setName] = useState(LoginFormData.name);
-  const [isLoggedInState, setIsLoggedIn] = useState(isLoggedIn || false);
+  
+  const [, setIsLoggedIn] = useState(isLoggedIn || false);
 
 
   useEffect(()=>{

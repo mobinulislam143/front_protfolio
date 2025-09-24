@@ -1,11 +1,7 @@
-import React, { useEffect } from "react"
 import { GiEagleEmblem } from "react-icons/gi";
 import { IoMdBonfire } from "react-icons/io";
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
-import ApiStore from "../apirequest/ApiRequest";
 import ServiceSkeleton from "../allskeleton/ServiceSkeleton";
 
 
@@ -14,7 +10,7 @@ const About = ({ getServiceList, getIntroDetails }) => {
 
 
 
-  console.log("my description is: ", getIntroDetails)
+  // console.log("my description is: ", getIntroDetails)
 
 
 
@@ -47,10 +43,10 @@ const About = ({ getServiceList, getIntroDetails }) => {
 
           )}</p>
           <div className="flex text-text_color_light flex-wrap pt-5 text-[18px]">
-            <p className="w-1/2">Age........20</p>
-            <p className="w-1/2">Home Town ........ Eidgah, Cox'sBazar</p>
+            <p className="w-1/2">Age........21</p>
+            <p className="w-1/2">Home Town ........ Eidgah, Cox&apos;sBazar</p>
             <p className="w-1/2">Freelance ........Available</p>
-            <p className="w-1/2">Present Address ..........Dhanmondi, Dhaka</p>
+            <p className="w-1/2">Present Address ..........E-Block Bonosri, Dhaka, Bangladesh</p>
 
           </div>
         </div>
@@ -95,7 +91,7 @@ const About = ({ getServiceList, getIntroDetails }) => {
             </div>
             <p className="text-2xl text-text_color_light font-semibold mb-2">Basic</p>
             <span className="text-text_color_light">
-              <h1 className="text-3xl"><sup>$</sup>20 hour</h1>
+              <h1 className="text-3xl"><sup>$</sup>10 hour</h1>
             </span>
             <div className="col text-text_color_dark flex flex-col gap-y-3 py-3">
               <p>RESTful API Development</p>
@@ -111,7 +107,7 @@ const About = ({ getServiceList, getIntroDetails }) => {
             </div>
             <p className="text-2xl text-text_color_light font-semibold mb-2">Premium</p>
             <span className="text-text_color_light">
-              <h1 className="text-3xl"><sup>$</sup>30 hour</h1>
+              <h1 className="text-3xl"><sup>$</sup>20 hour</h1>
             </span>
             <div className="col text-text_color_dark flex flex-col gap-y-3 py-3">
               <p>Full Stack API Development</p>

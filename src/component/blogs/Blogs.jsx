@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { GiTireIronCross } from "react-icons/gi";
 import PhotoGallery from "./PhotoGallery";
 import useSound from 'use-sound';
@@ -52,7 +52,7 @@ const Blogs = ({ getBlogsList , getGallery}) => {
 
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 lg:p-2 md:px-0 px-3">
           {!currentBlogs || currentBlogs.length === 0 ? (
-            <p>Sorry, you don't have any blogs</p>
+            <p>Sorry, you don&apos;t have any blogs</p>
           ) : (
             currentBlogs.map((blog) => (
               <div
