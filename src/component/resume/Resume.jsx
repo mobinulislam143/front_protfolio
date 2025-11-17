@@ -60,6 +60,7 @@ const Resume = ({ getEducation, getExperience, frontendSkills, backendSkills }) 
                 <div className="inline-block px-2 text-sm mt-2 bg-transparent border border-bg_secondary rounded-none text-bg_secondary">{item.passingyear}</div>
 
                 <h2 className="text-text_color_light py-3 text-lg font-semibold">{item.institute}</h2>
+                <h2 className="text-text_color_light py-3 text-lg font-semibold">Passing year: {item.passingyear}</h2>
                 <p className="text-text_color_dark text-sm ">Result: {item.result}</p>
                 <p className="text-text_color_dark text-sm">{item.degree}</p>
               </div>
