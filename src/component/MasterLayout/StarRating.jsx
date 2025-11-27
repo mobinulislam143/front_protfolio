@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import StarRatings from 'react-star-ratings';
 import useApiStore from '../apirequest/ApiRequest';
 import Cookie from 'js-cookie';
